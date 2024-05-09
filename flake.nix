@@ -40,16 +40,14 @@
     ];
     # host = "LENOVO-Torronto-5C2";
     # host = "Timi-TM1701";
-    LO = (import ./hosts/LENOVO-Torronto-5C2/options.nix).opt-config;
-  in
-  {
-    nixosConfigurations.LENOVO-Torronto-5C2 = nixpkgs.lib.nixosSystem {
+    LENOVO-5C2-conf = (import ./hosts/LENOVO-Torronto-5C2/options.nix).opt-config;
+
+    system-gen = {host-conf}: {
       inherit system;
       specialArgs = {
         inherit allowed-unfree-packages;
         inherit allowed-insecure-packages;
-        # inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
-        opt-config = LO;
+        opt-config = host-conf;
       };
       modules = [
         # Add NUR
@@ -74,14 +72,56 @@
 	      home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.novel2430 = import ./home;
+          home-manager.users.${host-conf.username} = import ./home;
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            # inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
-            opt-config = LO;
+            opt-config = host-conf;
           };
         }
       ];
     };
+  in
+  {
+    nixosConfigurations.LENOVO-Torronto-5C2 = nixpkgs.lib.nixosSystem (
+      system-gen {host-conf = LENOVO-5C2-conf;}
+    );
+    # nixosConfigurations.LENOVO-Torronto-5C2 = nixpkgs.lib.nixosSystem {
+    #   inherit system;
+    #   specialArgs = {
+    #     inherit allowed-unfree-packages;
+    #     inherit allowed-insecure-packages;
+    #     opt-config = LENOVO-5C2-conf;
+    #   };
+    #   modules = [
+    #     # Add NUR
+    #     { nixpkgs.overlays = [ nur.overlay ]; }
+    #     # Add Unstable Nixpkg
+    #     ({
+    #       nixpkgs.overlays = [
+    #         (final: prev: {
+    #           unstable = import inputs.nixpkgs-unstable {
+    #             inherit system;
+    #             config.allowUnfreePredicate = allowed-unfree-packages;
+    #             config.permittedInsecurePackages = allowed-insecure-packages;
+    #           };
+    #         })
+    #       ];
+    #     })
+    #     # Basic Configuration
+    #     ./nixos/configuration.nix
+    #     # Service
+    #     ./services/default.nix
+	   #    # Home Manager
+	   #    home-manager.nixosModules.home-manager {
+    #       home-manager.useGlobalPkgs = true;
+    #       home-manager.useUserPackages = true;
+    #       home-manager.users.${LENOVO-5C2-conf.username} = import ./home;
+    #       home-manager.extraSpecialArgs = {
+    #         inherit inputs;
+    #         opt-config = LENOVO-5C2-conf;
+    #       };
+    #     }
+    #   ];
+    # };
   };
 }
