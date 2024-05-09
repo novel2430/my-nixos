@@ -58,5 +58,6 @@
     use-zju-rvpn = true;
     zju-rvpn-port = "7895";
     zju-rvpn-config = "/home/${username}/zjuconnect/config.toml";
+
   };
 }
