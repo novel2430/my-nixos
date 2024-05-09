@@ -1,0 +1,13 @@
+style=/home/novel2430/.config/wofi/style.css
+xoffset=710
+yoffset=275
+width=25%
+height=25%
+always_parse_args=true
+show_all=true
+print_command=true
+layer=overlay
+insensitive=true
+prompt=
+normal-window=false
+cache-file=true
