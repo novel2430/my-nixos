@@ -38,7 +38,8 @@
       "electron-11.5.0"
       "openssl-1.1.1w"
     ];
-    host = "LENOVO-Torronto-5C2";
+    # host = "LENOVO-Torronto-5C2";
+    host = "Timi-TM1701";
     inherit (import ./hosts/${host}/options.nix) opt-config;
   in
   {
