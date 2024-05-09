@@ -1,8 +1,7 @@
 {lib, opt-config, ...}:
 with lib;
 let
-  wayfire-config = mkMerge [
-  ({
+  wayfire-config = mkMerge {
     alpha = {
       min_value = "0.100000";
       modifier = "<alt> <super>";
@@ -384,12 +383,11 @@ let
       smoothing_duration = "300";
       speed = "0.010000";
     };
-  })
-  (
-    # opt-config.monitors
-    {}
-  )
-  ];
+  }
+  ++
+  # opt-config.monitors
+  {}
+  ;
 in
 {
   home.file.".config/wayfire.ini".text = 
