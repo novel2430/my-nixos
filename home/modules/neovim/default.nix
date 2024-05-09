@@ -8,15 +8,6 @@
     customPlugins = {
       vscode-nvim = ./pkgs/vscode-nvim.nix;
     };
-    vv = pkgs.vimUtils.buildVimPlugin {
-      name = "vscode-nvim";
-      src = pkgs.fetchFromGitHub {
-        owner = "Mofiqul";
-        repo = "vscode.nvim";
-        rev = "1a2cb491a962acf3bbf53c6d0a61b4ec76012570";
-        sha256 = "10l01a8xaivz6n01x6hzfx7gd0igd0wcf9ril0sllqzbq7yx2bbk";
-      };
-    };
     buildJdtConfig = import ./lsp-jdtls.nix;
   in
   {
@@ -112,7 +103,7 @@
       markdown-preview-nvim
       # Vscode colorscheme
       {
-        plugin = vv;
+        plugin = customPlugins.vscode-nvim;
         config = toLuaFile ./plugins/vscode-nvim.lua;
       }
     ];
