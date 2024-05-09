@@ -384,7 +384,7 @@ let
       speed = "0.010000";
     };
   }
-  ++
+  //
   # opt-config.monitors
   {}
   ;
