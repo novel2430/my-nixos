@@ -68,29 +68,12 @@
         "type": "github"
       }
     },
-    "nvim-vscode-color": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1714116451,
-        "narHash": "sha256-IZNmbW18n1Gar0U8m7/ZefwEqvqG1dnVA3p1a3DWP70=",
-        "owner": "Mofiqul",
-        "repo": "vscode.nvim",
-        "rev": "bf62428d842ed1fb9c33353be10af40bac51e825",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Mofiqul",
-        "repo": "vscode.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nur": "nur",
-        "nvim-vscode-color": "nvim-vscode-color"
+        "nur": "nur"
       }
     }
   },
