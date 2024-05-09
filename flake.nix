@@ -40,6 +40,7 @@
     ];
     # host = "LENOVO-Torronto-5C2";
     # host = "Timi-TM1701";
+    LO = (import ./hosts/LENOVO-Torronto-5C2/options.nix).opt-config;
   in
   {
     nixosConfigurations.LENOVO-Torronto-5C2 = nixpkgs.lib.nixosSystem {
@@ -47,7 +48,8 @@
       specialArgs = {
         inherit allowed-unfree-packages;
         inherit allowed-insecure-packages;
-        inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
+        # inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
+        opt-config = LO;
       };
       modules = [
         # Add NUR
@@ -75,7 +77,8 @@
           home-manager.users.novel2430 = import ./home;
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
+            # inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
+            opt-config = LO;
           };
         }
       ];
