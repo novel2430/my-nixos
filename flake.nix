@@ -49,7 +49,7 @@
       specialArgs = {
         inherit allowed-unfree-packages;
         inherit allowed-insecure-packages;
-        opt-config = LENOVO-conf;
+        inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
       };
       modules = [
         # Add NUR
@@ -77,7 +77,7 @@
           home-manager.users.novel2430 = import ./home;
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            opt-config = LENOVO-conf;
+            inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
           };
         }
       ];
