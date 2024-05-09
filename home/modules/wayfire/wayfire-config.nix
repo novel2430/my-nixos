@@ -1,12 +1,14 @@
 {lib, ...}:
-with lib; rec {
+with lib;
+let
   wayfire-config = {
     example = {
       aaa = "bbb";
       bbb = "aaa";
     };
   };
-
+in
+{
   home.file."outout".text = 
   let
     renderSection = name: section:
