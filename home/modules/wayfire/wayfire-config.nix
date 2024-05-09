@@ -394,7 +394,7 @@ let
   };
 in
 {
-  home.file."outout.ini".text = 
+  home.file.".config/wayfire.ini".text = 
   let
     renderSection = name: section:
       let
