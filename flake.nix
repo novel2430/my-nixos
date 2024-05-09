@@ -38,10 +38,10 @@
       "electron-11.5.0"
       "openssl-1.1.1w"
     ];
-    host = "LENOVO-Torronto-5C2";
+    # host = "LENOVO-Torronto-5C2";
     # host = "Timi-TM1701";
     # inherit (import ./hosts/${host}/options.nix) opt-config;
-    LENOVO-conf = (import ./hosts/LENOVO-Torronto-5C2/options.nix).opt-config;
+    # LENOVO-conf = (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
   in
   {
     nixosConfigurations.LENOVO-Torronto-5C2 = nixpkgs.lib.nixosSystem {
@@ -49,7 +49,7 @@
       specialArgs = {
         inherit allowed-unfree-packages;
         inherit allowed-insecure-packages;
-        opt-config = LENOVO-conf;
+        inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
       };
       modules = [
         # Add NUR
@@ -77,7 +77,7 @@
           home-manager.users.novel2430 = import ./home;
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            opt-config = LENOVO-conf;
+            inherit (import ./hosts/LENOVO-Torronto-5C2/options.nix) opt-config;
           };
         }
       ];
