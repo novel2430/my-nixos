@@ -5,6 +5,6 @@ vimUtils.buildVimPlugin {
   name = "vscode-nvim";
   src = fetchgit {
     url = "https://github.com/Mofiqul/vscode.nvim.git";
-    hash = "sha256-1CvsM0tQO/BYkFiIM8K9z4ZY7iDP0URrratEzFPq5Dg=";
+    hash = "sha256-NNgvYuinSiLEX0x1eSjJHGU7frzwZriMhz9PKF7yWtY=";
   };
 }
