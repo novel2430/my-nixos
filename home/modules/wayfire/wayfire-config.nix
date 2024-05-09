@@ -13,7 +13,7 @@ in
   let
     renderSection = name: section:
       let
-        renderOption = key: value ''${key}=${value}'';
+        renderOption = key: value: ''${key}=${value}'';
       in
       "[${name}]\n" + (concatStringsSep "\n" (mapAttrsToList renderOption section));
   in
