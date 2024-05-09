@@ -6,12 +6,14 @@
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
     # Custom nvim package
     customPlugins = {
-      vscode-nvim = pkgs.callPackage ./pkgs/vscode-nvim.nix;
+      vscode-nvim = ./pkgs/vscode-nvim.nix;
     };
     buildJdtConfig = import ./lsp-jdtls.nix;
   in
   {
     enable = true;
+    # Custom Plugin Package add to nixpkgs
+     
     # Language Server Package
     extraPackages = with pkgs; [
       lua-language-server # Lua
