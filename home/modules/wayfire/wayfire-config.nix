@@ -386,7 +386,7 @@ let
   }
   //
   # opt-config.monitors
-  {}
+  { ddd = "dddd"; }
   ;
 in
 {
