@@ -12,7 +12,7 @@ let
       enabled_for = ''(type equals "toplevel" | (type equals "x-or" & focusable equals true))'';
       fade_duration = "400";
       fade_enabled_for = ''type equals "overlay"'';
-      fire_color = "#B22303FF";
+      fire_color = "\\#B22303FF";
       fire_duration = "300";
       fire_enabled_for = "none";
       fire_particle_size = "16.000000";
@@ -76,7 +76,7 @@ let
       repeatable_binding_volume_up = "KEY_VOLUMEUP";
     };
     core = {
-      background_color = "\#1A1A1AFF";
+      background_color = "\\#1A1A1AFF";
       close_top_view = "<super> KEY_Q | <alt> KEY_F4";
       focus_button_with_modifiers = "false";
       focus_buttons = "BTN_LEFT | BTN_MIDDLE | BTN_RIGHT";
