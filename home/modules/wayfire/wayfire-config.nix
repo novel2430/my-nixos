@@ -386,7 +386,8 @@ let
     };
   })
   (
-    opt-config.monitors
+    # opt-config.monitors
+    {}
   )
   ];
 in
