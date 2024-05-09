@@ -38,15 +38,17 @@
       "electron-11.5.0"
       "openssl-1.1.1w"
     ];
-    # host = "LENOVO-Torronto-5C2";
-    # host = "Timi-TM1701";
 
     # Host Config
+    # List:
+    #   LENOVO-Torronto-5C2
+    #   Timi-TM1701
     LENOVO-5C2-conf = (import ./hosts/LENOVO-Torronto-5C2/options.nix).opt-config;
+    Timi-TM1701-conf = (import ./hosts/Timi-TM1701/options.nix).opt-config;
   in
   rec {
     # Generate Function
-    system-gen = {host-conf}: {
+    system-gen = {host-conf}: nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {
         inherit allowed-unfree-packages;
@@ -85,8 +87,9 @@
       ];
     };
     # Main Config Fuction
-    nixosConfigurations.LENOVO-Torronto-5C2 = nixpkgs.lib.nixosSystem (
-      system-gen {host-conf = LENOVO-5C2-conf;}
-    );
+    nixosConfigurations = {
+      LENOVO-Torronto-5C2 = system-gen { host-conf = LENOVO-5C2-conf; };
+      Timi-TM1701 = system-gen { host-conf = Timi-TM1701-conf; };
+    };
   };
 }
