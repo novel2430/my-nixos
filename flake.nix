@@ -86,8 +86,8 @@
         ./nixos/configuration.nix
         # Service
         ./services/default.nix
-	      # Home Manager
-	      home-manager.nixosModules.home-manager {
+        # Home Manager
+        home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.${host-conf.config.username} = import ./home;
