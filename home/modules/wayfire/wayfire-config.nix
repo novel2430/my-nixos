@@ -15,7 +15,7 @@ in
       let
         renderOption = key: value ''${key}=${value}'';
       in
-      "[${name}]\n" + (concatStringSep "\n" (mapAttrsToList renderOption section));
+      "[${name}]\n" + (concatStringsSep "\n" (mapAttrsToList renderOption section));
   in
-  concatStringSep "\n\n" (mapAttrsToList renderSection wayfire-config);
+  concatStringsSep "\n\n" (mapAttrsToList renderSection wayfire-config);
 }
