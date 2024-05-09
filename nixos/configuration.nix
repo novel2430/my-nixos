@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ lib, pkgs, allowed-unfree-packages, allowed-insecure-packages, opt-config, host, ... }:
+{ lib, pkgs, allowed-unfree-packages, allowed-insecure-packages, opt-config, ... }:
 
 {
   # Unfree Packages
@@ -12,7 +12,7 @@
   };
 
   imports = [ 
-    ../hosts/${host}/hardware-configuration.nix
+    ../hosts/${opt-config.hostname}/hardware-configuration.nix
     ./modules/opengl.nix
     ./modules/xdg.nix
     ./modules/obs-virtual-camera.nix
