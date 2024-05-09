@@ -1,5 +1,6 @@
-{vimUtils, fetchgit, ...}:
+{pkgs, ...}:
 
+with pkgs;
 vimUtils.buildVimPlugin {
   name = "vscode-nvim";
   src = fetchgit {
