@@ -10,7 +10,7 @@
     };
     vv = pkgs.vimUtils.buildVimPlugin {
       name = "vscode-nvim";
-      src = pkgs.fetchFromGithub {
+      src = pkgs.fetchFromGitHub {
         owner = "Mofiqul";
         repo = "vscode.nvim";
         rev = "1a2cb491a962acf3bbf53c6d0a61b4ec76012570";
