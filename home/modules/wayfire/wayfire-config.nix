@@ -1,7 +1,8 @@
-{lib, ...}:
+{lib, opt-config, ...}:
 with lib;
 let
-  wayfire-config = {
+  wayfire-config = mkMerge [
+  ({
     alpha = {
       min_value = "0.100000";
       modifier = "<alt> <super>";
@@ -237,14 +238,6 @@ let
       transform = "normal";
       vrr = "false";
     };
-    "output:eDP-1" = {
-      depth = "8";
-      mode = "off";
-      position = "auto";
-      scale = "1.0";
-      transform = "normal";
-      vrr = "false";
-    };
     place = {
       mode = "center";
     };
@@ -391,7 +384,11 @@ let
       smoothing_duration = "300";
       speed = "0.010000";
     };
-  };
+  })
+  (
+    opt-config.monitors
+  )
+  ];
 in
 {
   home.file.".config/wayfire.ini".text = 

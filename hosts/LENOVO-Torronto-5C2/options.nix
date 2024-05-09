@@ -21,6 +21,26 @@
     intel-bus-id = "PCI:0:2:0";
     nvidia-bus-id = "PCI:3:0:0";
 
+    # Monitors (For Wayfire Config)
+    # "output:<monitor-name>" = {
+    #   depth = "8";
+    #   mode = "off";
+    #   position = "auto";
+    #   scale = "1.0";
+    #   transform = "normal";
+    #   vrr = "false";
+    # }
+    monitors = {
+      "output:eDP-1" = {
+        depth = "8";
+        mode = "off";
+        position = "auto";
+        scale = "1.0";
+        transform = "normal";
+        vrr = "false";
+      };
+    };
+
     # Use Clash
     use-clash = true;
     clash-dir = "/home/${username}/clash";
