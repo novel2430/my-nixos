@@ -94,8 +94,8 @@
     };
     # Main Config Fuction
     nixosConfigurations = {
-      LENOVO-5C2-conf.name = system-gen { host-conf = LENOVO-5C2-conf.config; };
-      Timi-TM1701.name = system-gen { host-conf = Timi-TM1701-conf.config; };
+      "${LENOVO-5C2-conf.name}" = system-gen { host-conf = LENOVO-5C2-conf.config; };
+      "${Timi-TM1701-conf.name}" = system-gen { host-conf = Timi-TM1701-conf.config; };
     };
   };
 }
