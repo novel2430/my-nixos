@@ -2,7 +2,6 @@
   opt-config = rec {
     # Basic
     username = "novel2430";
-    hostname = "nixos-x64";
 
     # Git
     gitname = "novel2430";

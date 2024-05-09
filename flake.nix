@@ -41,15 +41,20 @@
 
     # Host Config
     # List:
+    #   Default
     #   LENOVO-Torronto-5C2
     #   Timi-TM1701
-    LENOVO-5C2-conf = {
-      config = (import ./hosts/LENOVO-Torronto-5C2/options.nix).opt-config;
-      name = "LENOVO-Torronto-5C2";
+    Default-conf = rec {
+      name = "Default";
+      config = (import ./hosts/${name}/options.nix).opt-config;
     };
-    Timi-TM1701-conf = {
-      config = (import ./hosts/Timi-TM1701/options.nix).opt-config;
+    LENOVO-5C2-conf = rec {
+      name = "LENOVO-Torronto-5C2";
+      config = (import ./hosts/${name}/options.nix).opt-config;
+    };
+    Timi-TM1701-conf = rec {
       name = "Timi-TM1701";
+      config = (import ./hosts/${name}/options.nix).opt-config;
     };
   in
   rec {
@@ -95,6 +100,7 @@
     };
     # Main Config Fuction
     nixosConfigurations = {
+      "${Default-conf.name}" = system-gen { host-conf = Default-conf; };
       "${LENOVO-5C2-conf.name}" = system-gen { host-conf = LENOVO-5C2-conf; };
       "${Timi-TM1701-conf.name}" = system-gen { host-conf = Timi-TM1701-conf; };
     };
