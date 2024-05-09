@@ -6,7 +6,7 @@
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
     # Custom nvim package
     customPlugins = {
-      vscode-nvim = ./pkgs/vscode-nvim.nix;
+      vscode-nvim = import ./pkgs/vscode-nvim.nix;
     };
     buildJdtConfig = import ./lsp-jdtls.nix;
   in
