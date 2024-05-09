@@ -41,6 +41,7 @@
     host = "LENOVO-Torronto-5C2";
     # host = "Timi-TM1701";
     inherit (import ./hosts/${host}/options.nix) opt-config;
+    LENOVO-conf = (import ./hosts/LENOVO-Torronto-5C2/options.nix).opt-config;
   in
   {
     nixosConfigurations.${opt-config.hostname} = nixpkgs.lib.nixosSystem {
@@ -50,6 +51,7 @@
         inherit allowed-insecure-packages;
         inherit opt-config;
         inherit host;
+        spc = LENOVO-conf;
       };
       modules = [
         # Add NUR
