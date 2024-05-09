@@ -31,14 +31,14 @@
     #   vrr = "false";
     # }
     monitors = {
-      "output:eDP-1" = {
-        depth = "8";
-        mode = "off";
-        position = "auto";
-        scale = "1.0";
-        transform = "normal";
-        vrr = "false";
-      };
+      # "output:eDP-1" = {
+      #   depth = "8";
+      #   mode = "off";
+      #   position = "auto";
+      #   scale = "1.0";
+      #   transform = "normal";
+      #   vrr = "false";
+      # };
     };
 
     # Use Clash
