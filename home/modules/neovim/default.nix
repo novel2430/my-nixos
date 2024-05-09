@@ -1,15 +1,12 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = 
   let
     toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-    # Build nvim package
-    gitPlugins = {
-      vscode-nvim = pkgs.vimUtils.buildVimPlugin {
-        name = "vscode-nvim";
-        src = inputs.nvim-vscode-color;
-      };
+    # Custom nvim package
+    customPlugins = {
+      vscode-nvim = pkgs.callPackage ./pkgs/vscode-nvim.nix;
     };
     buildJdtConfig = import ./lsp-jdtls.nix;
   in
@@ -104,7 +101,7 @@
       markdown-preview-nvim
       # Vscode colorscheme
       {
-        plugin = gitPlugins.vscode-nvim;
+        plugin = customPlugins.vscode-nvim;
         config = toLuaFile ./plugins/vscode-nvim.lua;
       }
     ];

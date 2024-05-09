@@ -10,11 +10,6 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Neovim Vscode ColorScheme
-    nvim-vscode-color = {
-      url = "github:Mofiqul/vscode.nvim";
-      flake = false;
-    };
     # NUR
     nur.url = "github:nix-community/NUR";
   };
@@ -22,23 +17,6 @@
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
   let
     system = "x86_64-linux";
-    allowed-unfree-packages = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-      "nvidia-x11"
-      "nvidia-settings"
-      "nvidia-persistenced"
-      "spotify"
-      "wpsoffice-cn"
-      "baidunetdisk"
-      "dingtalk"
-      "qq"
-      "wechat-universal-bwrap"
-      "wemeet-bin-bwrap"
-    ];
-    allowed-insecure-packages = [
-      "electron-11.5.0"
-      "openssl-1.1.1w"
-    ];
-
     # Host Config
     # List:
     #   Default
@@ -56,6 +34,26 @@
       name = "Timi-TM1701";
       config = (import ./hosts/${name}/options.nix).opt-config;
     };
+
+    # Superset of the default unfree packages
+    allowed-unfree-packages = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-persistenced"
+      "spotify"
+      "wpsoffice-cn"
+      "baidunetdisk"
+      "dingtalk"
+      "qq"
+      "wechat-universal-bwrap"
+      "wemeet-bin-bwrap"
+    ];
+    # Superset of the default insecure packages
+    allowed-insecure-packages = [
+      "electron-11.5.0"
+      "openssl-1.1.1w"
+    ];
+
   in
   rec {
     # Generate Function
