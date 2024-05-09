@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ lib, pkgs, allowed-unfree-packages, allowed-insecure-packages, opt-config, ... }:
+{ lib, pkgs, allowed-unfree-packages, allowed-insecure-packages, opt-config, hostname, ... }:
 
 {
   # Unfree Packages
@@ -12,7 +12,7 @@
   };
 
   imports = [ 
-    ../hosts/${opt-config.hostname}/hardware-configuration.nix
+    ../hosts/${hostname}/hardware-configuration.nix
     ./modules/opengl.nix
     ./modules/xdg.nix
     ./modules/obs-virtual-camera.nix
@@ -43,7 +43,7 @@
     };
   };
 
-  networking.hostName = "${opt-config.hostname}"; # Define your hostname.
+  networking.hostName = "${hostname}"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.

@@ -59,7 +59,8 @@
       specialArgs = {
         inherit allowed-unfree-packages;
         inherit allowed-insecure-packages;
-        opt-config = host-conf;
+        opt-config = host-conf.config;
+        hostname = host-conf.name;
       };
       modules = [
         # Add NUR
@@ -87,15 +88,15 @@
           home-manager.users.${host-conf.username} = import ./home;
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            opt-config = host-conf;
+            opt-config = host-conf.config;
           };
         }
       ];
     };
     # Main Config Fuction
     nixosConfigurations = {
-      "${LENOVO-5C2-conf.name}" = system-gen { host-conf = LENOVO-5C2-conf.config; };
-      "${Timi-TM1701-conf.name}" = system-gen { host-conf = Timi-TM1701-conf.config; };
+      "${LENOVO-5C2-conf.name}" = system-gen { host-conf = LENOVO-5C2-conf; };
+      "${Timi-TM1701-conf.name}" = system-gen { host-conf = Timi-TM1701-conf; };
     };
   };
 }
