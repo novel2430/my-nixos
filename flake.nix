@@ -52,9 +52,6 @@
       "electron-11.5.0"
       "openssl-1.1.1w"
     ];
-
-    internet-src = ((import ./internet-src/flake.nix).outputs {}).sources;
-
   in
   rec {
     # Generate Function
@@ -93,7 +90,6 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
             opt-config = host-conf.config;
-            inherit internet-src;
           };
         }
       ];
