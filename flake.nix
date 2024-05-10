@@ -53,7 +53,7 @@
       "openssl-1.1.1w"
     ];
 
-    wemeet = (import ./internet-src/flake.nix).wemeet;
+    internet-src = (import ./internet-src/flake.nix).sources;
 
   in
   rec {
@@ -93,6 +93,7 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
             opt-config = host-conf.config;
+            inherit internet-src;
           };
         }
       ];
