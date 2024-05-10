@@ -40,7 +40,7 @@
       custom-pkgs.wechat-universal-bwrap
       # Unstable
       # NUR
-      nur.repos.novel2430.zju-connect
+      config.nur.repos.novel2430.zju-connect
       # nur.repos.novel2430.wpsoffice-cn
       # nur.repos.xddxdd.baidunetdisk
       # nur.repos.xddxdd.dingtalk

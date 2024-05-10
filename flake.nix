@@ -10,13 +10,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # NUR
-    nurpkgs = {
+    nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nurpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nur, ... }@inputs:
   let
     system = "x86_64-linux";
     # Host Config
@@ -91,13 +91,14 @@
       };
       modules = [
         # Add NUR
+        nur.nixosModules.nur
         # { nixpkgs.overlays = [ nur.overlay ]; }
         # Add Unstable Nixpkg
         ({
           nixpkgs.overlays = [
             (final: prev: {
               unstable = unstable-pkgs;
-              nur = nurpkgs;
+              nur = nur;
             })
           ];
         })
