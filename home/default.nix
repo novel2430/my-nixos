@@ -36,7 +36,7 @@
       modify-pkgs.hmcl
       modify-pkgs.openttd
       # Custom Packages
-      custom-pkgs.wemeet-bin-bwrap
+      # custom-pkgs.wemeet-bin-bwrap
       custom-pkgs.wechat-universal-bwrap
       # Unstable
       # NUR
