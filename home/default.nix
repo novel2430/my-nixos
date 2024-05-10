@@ -32,6 +32,9 @@
       motrix
       gnome.file-roller
       wl-clipboard
+      # Modify Packages
+      modify-pkgs.hmcl
+      modify-pkgs.openttd
       # Unstable
       # NUR
       nur.repos.novel2430.zju-connect
@@ -40,7 +43,6 @@
       nur.repos.xddxdd.dingtalk
       nur.repos.xddxdd.qq
 
-      modify-pkgs.hmcl
     ])
     ;
 

@@ -4,6 +4,7 @@
     ./ssh
     ./git
     ./bash
+    ./brave
     ./zsh
     ./fcitx5
     ./wayfire
@@ -12,7 +13,6 @@
     ./dunst
     ./wofi
     ./neovim
-    # ./modify-pkgs
     ./tmux
     ./mimetype
     ./fzf
