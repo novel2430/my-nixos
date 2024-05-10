@@ -13,7 +13,7 @@
       url = "https://github.com/huanghongxun/HMCL/releases/download/release-${version}/HMCL-${version}.jar";
     };
   };
-  outputs = {self, hmclSrc
+  outputs = {hmclSrc
   }@inputs:
   {
     sources = {
