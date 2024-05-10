@@ -36,16 +36,17 @@
       modify-pkgs.hmcl
       modify-pkgs.openttd
       # Custom Packages
-      # custom-pkgs.wemeet-bin-bwrap
-      custom-pkgs.wechat-universal-bwrap
+      # custom-pkgs.*
       # Unstable
+      # unstable.*
       # NUR
+      unstable.nur.repos.novel2430.wemeet-bin-bwrap
+      unstable.nur.repos.novel2430.wechat-universal-bwrap
       nur.repos.novel2430.zju-connect
       nur.repos.novel2430.wpsoffice-cn
       nur.repos.xddxdd.baidunetdisk
       nur.repos.xddxdd.dingtalk
       nur.repos.xddxdd.qq
-      unstable.nur.repos.novel2430.wemeet-bin-bwrap
 
     ])
     ;
