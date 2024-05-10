@@ -13,9 +13,8 @@
     # NUR
     nur.url = "github:nix-community/NUR";
     #
-    inherit (import ./internet-src/default.nix) wemeetSrc;
   }
-  # (import ./internet-src/default.nix) {}
+  (import ./internet-src/default.nix) {}
   ;
 
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
