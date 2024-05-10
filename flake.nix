@@ -61,7 +61,7 @@
       config.permittedInsecurePackages = allowed-insecure-packages;
     };
 
-    uu = nixpkgs-unstable.legacyPackages.${system}.override {
+    uu = nixpkgs-unstable.override {
       overlays = [ nur.overlay ]; 
     };
 
