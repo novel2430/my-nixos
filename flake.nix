@@ -53,7 +53,7 @@
       "openssl-1.1.1w"
     ];
 
-    internet-src = (import ./internet-src/flake.nix).sources;
+    internet-src = (import ./internet-src/flake.nix).outputs.sources;
 
   in
   rec {
