@@ -1,11 +1,4 @@
 { config, lib, pkgs, inputs, opt-config, ... }:
-let
-  nnn = import inputs.nur {
-    nurpkgs = import pkgs.unstable {
-      system = "x86_64-linux";
-    };
-  };
-in
 {
   home.username = "${opt-config.username}";
   home.homeDirectory = "/home/${opt-config.username}";
@@ -43,12 +36,9 @@ in
       # NUR
       nur.repos.novel2430.zju-connect
       nur.repos.novel2430.wpsoffice-cn
-      # nur.repos.novel2430.wechat-universal-bwrap
-      # nur.repos.novel2430.wemeet-bin-bwrap
       nur.repos.xddxdd.baidunetdisk
       nur.repos.xddxdd.dingtalk
       nur.repos.xddxdd.qq
-      nnn.repos.novel2430.wemeet-bin-bwrap
     ])
     ;
 
