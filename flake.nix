@@ -1,6 +1,5 @@
 {
   description = "My NixOS flake";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     # Unstable
@@ -12,10 +11,7 @@
     };
     # NUR
     nur.url = "github:nix-community/NUR";
-    #
-  } //
-  (import ./internet-src/default.nix) {}
-  ;
+  };
 
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
   let
@@ -56,6 +52,8 @@
       "electron-11.5.0"
       "openssl-1.1.1w"
     ];
+
+    wemeet = (import ./internet-src/flake.nix).wemeet;
 
   in
   rec {
