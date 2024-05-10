@@ -68,7 +68,7 @@
     # Custom Packages
     custom-pkgs = import ./custom-pkgs {
       pkgs = nixpkgs.legacyPackages.${system};
-      unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
+      unstable-pkgs = unstable-pkgs;
     };
 
   in
