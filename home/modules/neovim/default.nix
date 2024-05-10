@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, custom-pkgs, ... }:
 {
   programs.neovim = 
   let
@@ -103,7 +103,7 @@
       markdown-preview-nvim
       # Vscode colorscheme
       {
-        plugin = customPlugins.vscode-nvim;
+        plugin = custom-pkgs.vscode-nvim;
         config = toLuaFile ./plugins/vscode-nvim.lua;
       }
     ];
