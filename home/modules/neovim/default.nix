@@ -4,10 +4,6 @@
   let
     toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-    # Custom nvim package
-    customPlugins = {
-      vscode-nvim = import ./pkgs/vscode-nvim.nix {inherit pkgs;};
-    };
     buildJdtConfig = import ./lsp-jdtls.nix;
   in
   {
@@ -53,16 +49,15 @@
       # LSP
       {
         plugin = nvim-lspconfig;
-        config = (toLuaFile ./plugins/lsp.lua)
-        + 
-        (
-          toLua (
-            buildJdtConfig {
-              java = pkgs.jdk17; # Change to your JDK
-              jdt = pkgs.jdt-language-server;
-            }
+        config = (toLuaFile ./plugins/lsp.lua) + 
+          (
+            toLua (
+              buildJdtConfig {
+                java = pkgs.jdk17; # Change to your JDK
+                jdt = pkgs.jdt-language-server;
+              }
+            )
           )
-        )
         ;
       }
       # treesitter
