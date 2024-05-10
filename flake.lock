@@ -53,7 +53,7 @@
         "type": "github"
       }
     },
-    "nurpkgs": {
+    "nur": {
       "locked": {
         "lastModified": 1715326764,
         "narHash": "sha256-l6ipwgpTLBhsSJeipd1Cpd+pk4cRpmMW5UM1p4lhMxY=",
@@ -73,7 +73,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nurpkgs": "nurpkgs"
+        "nur": "nur"
       }
     }
   },
