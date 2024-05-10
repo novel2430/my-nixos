@@ -61,7 +61,7 @@
       config.permittedInsecurePackages = allowed-insecure-packages;
     };
     # Modify Packages
-    modify-pkgs = import ./modify-pkgs {};
+    modify-pkgs = import ./modify-pkgs {pkgs = nixpkgs;};
 
   in
   rec {

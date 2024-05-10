@@ -1,8 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  imports = [
-    ./openttd.nix
-    ./hmcl.nix
-    ./brave.nix
-  ]; 
+  hmcl = (import ./hmcl.nix { pkgs=pkgs; }).hmcl;
 }
