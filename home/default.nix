@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, opt-config, ... }:
+{ config, lib, pkgs, inputs, opt-config, internet-src, ... }:
 {
   home.username = "${opt-config.username}";
   home.homeDirectory = "/home/${opt-config.username}";
