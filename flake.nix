@@ -54,6 +54,12 @@
       "electron-11.5.0"
       "openssl-1.1.1w"
     ];
+    # Stable Brach Packages
+    stable-pkgs = import inputs.nixpkgs {
+      inherit system;
+      config.allowUnfreePredicate = allowed-unfree-packages;
+      config.permittedInsecurePackages = allowed-insecure-packages;
+    };
     # Unstable Brach Packages
     unstable-pkgs = import inputs.nixpkgs-unstable {
       inherit system;
@@ -62,12 +68,12 @@
     };
     # Modify Packages
     modify-pkgs = import ./modify-pkgs {
-      pkgs = nixpkgs.legacyPackages.${system};
-      unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
+      pkgs = stable-pkgs;
+      unstable-pkgs = unstable-pkgs;
     };
     # Custom Packages
     custom-pkgs = import ./custom-pkgs {
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = stable-pkgs;
       unstable-pkgs = unstable-pkgs;
     };
 
