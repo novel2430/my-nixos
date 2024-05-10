@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modify-pkgs, inputs, opt-config, ... }:
+{ config, lib, pkgs, modify-pkgs, custom-pkgs, inputs, opt-config, ... }:
 {
   home.username = "${opt-config.username}";
   home.homeDirectory = "/home/${opt-config.username}";
@@ -35,6 +35,9 @@
       # Modify Packages
       modify-pkgs.hmcl
       modify-pkgs.openttd
+      # Custom Packages
+      custom-pkgs.wemeet-bin-bwrap
+      custom-pkgs.wechat-universal-bwrap
       # Unstable
       # NUR
       nur.repos.novel2430.zju-connect

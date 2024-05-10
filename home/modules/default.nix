@@ -16,7 +16,6 @@
     ./tmux
     ./mimetype
     ./fzf
-    ./my-pkgs
   ]
   ;
 }

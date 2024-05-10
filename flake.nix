@@ -65,6 +65,11 @@
       pkgs = nixpkgs.legacyPackages.${system};
       unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
     };
+    # Custom Packages
+    custom-pkgs = import ./custom-pkgs {
+      pkgs = nixpkgs.legacyPackages.${system};
+      unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
+    };
 
   in
   rec {
@@ -101,6 +106,7 @@
             inherit inputs;
             opt-config = host-conf.config;
             inherit modify-pkgs;
+            inherit custom-pkgs;
           };
         }
       ];
