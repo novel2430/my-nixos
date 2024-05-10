@@ -7,7 +7,7 @@ let
     #   url = "https://github.com/huanghongxun/HMCL/releases/download/release-${final.version}/HMCL-${final.version}.jar";
     #   hash = "sha256-ziqcauetWoFn58kBJ0KnqX5CPNC/Sn7DD/Buxdi977I=";
     #};
-    src = internet-src;
+    src = internet-src.hmcl;
   });
 in
 {
