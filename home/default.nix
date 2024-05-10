@@ -41,10 +41,10 @@
       # Unstable
       # NUR
       nur.repos.novel2430.zju-connect
-      nur.repos.novel2430.wpsoffice-cn
-      nur.repos.xddxdd.baidunetdisk
-      nur.repos.xddxdd.dingtalk
-      nur.repos.xddxdd.qq
+      # nur.repos.novel2430.wpsoffice-cn
+      # nur.repos.xddxdd.baidunetdisk
+      # nur.repos.xddxdd.dingtalk
+      # nur.repos.xddxdd.qq
 
     ])
     ;
