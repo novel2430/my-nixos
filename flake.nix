@@ -13,7 +13,7 @@
     # NUR
     nur.url = "github:nix-community/NUR";
     #
-    ww = import ./internet-src/default.nix;
+    inherit (import ./internet-src/default.nix) wemeetSrc;
   }
   # (import ./internet-src/default.nix) {}
   ;
