@@ -61,6 +61,10 @@
       config.permittedInsecurePackages = allowed-insecure-packages;
     };
 
+    uu = unstable-pkgs.override {
+      overlays = [ nur.overlay ]; 
+    };
+
   in
   rec {
     # Generate Function
@@ -79,7 +83,7 @@
         ({
           nixpkgs.overlays = [
             (final: prev: {
-              unstable = unstable-pkgs;
+              unstable = uu;
             })
           ];
         })
