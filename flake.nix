@@ -13,7 +13,7 @@
     # NUR
     nur.url = "github:nix-community/NUR";
     #
-    internetSrc = (import ./internet-src/default.nix).internetSrc; 
+    internetSrc = (import ./internet-src/default.nix).internetIn; 
   };
 
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
