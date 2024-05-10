@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nur, ... }@inputs:
   let
     system = "x86_64-linux";
     # Host Config
@@ -68,6 +68,7 @@
       };
       modules = [
         # Add NUR
+        { nixpkgs-unstable.overlays = [ nur.overlay ];}
         { nixpkgs.overlays = [ nur.overlay ]; }
         # Add Unstable Nixpkg
         ({
