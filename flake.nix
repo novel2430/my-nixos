@@ -10,7 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # NUR
-    nur.url = "github:nix-community/NUR";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
