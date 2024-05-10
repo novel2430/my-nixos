@@ -1,4 +1,4 @@
-{lib, opt-config, ...}:
+{lib, opt-config, modify-pkgs, ...}:
 {
   imports = [
     ./ssh
