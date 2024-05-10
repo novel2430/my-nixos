@@ -1,4 +1,4 @@
-{ pkgs,... }:
+{ pkgs, unstable-pkgs, ... }:
 let
   lib = pkgs.lib;
   gtk-4-12-5 = pkgs.gtk4.overrideAttrs (final: prev : with pkgs; rec {
@@ -9,7 +9,7 @@ let
     };
   });
 
-  deps = with pkgs.unstable; [
+  deps = with unstable-pkgs; [
     alsa-lib at-spi2-atk at-spi2-core atk cairo cups dbus expat
     fontconfig freetype gdk-pixbuf glib gtk3 gtk-4-12-5 libdrm xorg.libX11 libGL
     libxkbcommon xorg.libXScrnSaver xorg.libXcomposite xorg.libXcursor xorg.libXdamage
@@ -29,7 +29,7 @@ let
     # ++ lib.optionals lib.enableVideoAcceleration  [ "UseChromeOSDirectVideoDecoder" ]
     ;
 
-  new-installPhase = with pkgs.unstable; ''
+  new-installPhase = with unstable-pkgs; ''
       runHook preInstall
 
       mkdir -p $out $out/bin
@@ -77,7 +77,7 @@ let
       runHook postInstall
   '';
 
-  new-preFixup = with pkgs.unstable; with lib; ''
+  new-preFixup = with unstable-pkgs; with lib; ''
     # Add command line args to wrapGApp.
     gappsWrapperArgs+=(
       --prefix LD_LIBRARY_PATH : ${rpath}
@@ -93,7 +93,7 @@ let
     )
   '';
 
-  my-brave = pkgs.unstable.brave.overrideAttrs (final: prev : with pkgs.unstable; rec {
+  my-brave = unstable-pkgs.brave.overrideAttrs (final: prev : with unstable-pkgs; rec {
     buildInputs = [
       # needed for GSETTINGS_SCHEMAS_PATH
       glib gsettings-desktop-schemas gtk3 gtk-4-12-5
