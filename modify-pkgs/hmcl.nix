@@ -10,7 +10,5 @@ let
   });
 in
 {
-  home.packages = [
-    my-hmcl
-  ];
+  hmcl = my-hmcl;
 }

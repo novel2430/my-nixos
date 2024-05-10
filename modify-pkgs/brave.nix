@@ -104,17 +104,15 @@ let
   });
 in
 {
-  # home.packages = [
-  #   my-brave
-  # ];
-  programs.chromium = {
-    enable = true;
-    package = my-brave;
-    extensions = [
-      { id = "padekgcemlokbadohgkifijomclgjgif"; } # Proxy SwitchyOmega
-      { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; } # TamperMonkey
-    ];
-    commandLineArgs = [
-    ];
-  };
+  brave = my-brave;
+  # programs.chromium = {
+  #   enable = true;
+  #   package = my-brave;
+  #   extensions = [
+  #     { id = "padekgcemlokbadohgkifijomclgjgif"; } # Proxy SwitchyOmega
+  #     { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; } # TamperMonkey
+  #   ];
+  #   commandLineArgs = [
+  #   ];
+  # };
 }

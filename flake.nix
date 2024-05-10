@@ -54,12 +54,14 @@
       "electron-11.5.0"
       "openssl-1.1.1w"
     ];
-
+    # Unstable Brach Packages
     unstable-pkgs = import inputs.nixpkgs-unstable {
       inherit system;
       config.allowUnfreePredicate = allowed-unfree-packages;
       config.permittedInsecurePackages = allowed-insecure-packages;
     };
+    # Modify Packages
+    modify-pkgs = import ./modify-pkgs;
 
   in
   rec {
@@ -95,6 +97,7 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
             opt-config = host-conf.config;
+            inherit modify-pkgs;
           };
         }
       ];

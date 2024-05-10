@@ -12,7 +12,7 @@
     ./dunst
     ./wofi
     ./neovim
-    ./modify-pkgs
+    # ./modify-pkgs
     ./tmux
     ./mimetype
     ./fzf

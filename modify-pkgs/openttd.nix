@@ -10,7 +10,8 @@ let
   });
 in
 {
-  home.packages = [
-    my-openttd
-  ];
+  # home.packages = [
+  #   my-openttd
+  # ];
+  openttd = my-openttd;
 }

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, opt-config, ... }:
+{ config, lib, pkgs, modify-pkgs, inputs, opt-config, ... }:
 {
   home.username = "${opt-config.username}";
   home.homeDirectory = "/home/${opt-config.username}";
@@ -39,6 +39,8 @@
       nur.repos.xddxdd.baidunetdisk
       nur.repos.xddxdd.dingtalk
       nur.repos.xddxdd.qq
+
+      modify-pkgs.hmcl
     ])
     ;
 
