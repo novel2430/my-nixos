@@ -11,13 +11,13 @@
       pname = "hmcl";
       version = "3.5.7";
       url = "https://github.com/huanghongxun/HMCL/releases/download/release-${version}/HMCL-${version}.jar";
+      flake = false;
     };
   };
-  outputs = {hmclSrc
-  }@inputs:
+  outputs = { ... }@inputs:
   {
     sources = {
-      hmcl = hmclSrc;
+      hmcl = inputs.hmclSrc;
     };
   };
 }
