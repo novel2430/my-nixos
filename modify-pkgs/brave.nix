@@ -1,5 +1,6 @@
-{ pkgs, lib,... }:
+{ pkgs,... }:
 let
+  lib = pkgs.lib;
   gtk-4-12-5 = pkgs.gtk4.overrideAttrs (final: prev : with pkgs; rec {
     version = "4.12.5";
     src = fetchurl {
@@ -105,14 +106,4 @@ let
 in
 {
   brave = my-brave;
-  # programs.chromium = {
-  #   enable = true;
-  #   package = my-brave;
-  #   extensions = [
-  #     { id = "padekgcemlokbadohgkifijomclgjgif"; } # Proxy SwitchyOmega
-  #     { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; } # TamperMonkey
-  #   ];
-  #   commandLineArgs = [
-  #   ];
-  # };
 }
