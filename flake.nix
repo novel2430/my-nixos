@@ -55,13 +55,12 @@
       "openssl-1.1.1w"
     ];
 
-    nur-pkgs = import nur {
-      pkgs = import nixpkgs-unstable { 
-        inherit system;
-        config.allowUnfreePredicate = allowed-unfree-packages;
-        config.permittedInsecurePackages = allowed-insecure-packages;
-      };
+    unstable-pkgs = import inputs.nixpkgs-unstable {
+      inherit system;
+      config.allowUnfreePredicate = allowed-unfree-packages;
+      config.permittedInsecurePackages = allowed-insecure-packages;
     };
+
   in
   rec {
     # Generate Function
@@ -80,11 +79,7 @@
         ({
           nixpkgs.overlays = [
             (final: prev: {
-              unstable = import inputs.nixpkgs-unstable {
-                inherit system;
-                config.allowUnfreePredicate = allowed-unfree-packages;
-                config.permittedInsecurePackages = allowed-insecure-packages;
-              };
+              unstable = unstable-pkgs;
             })
           ];
         })
@@ -100,7 +95,6 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
             opt-config = host-conf.config;
-            inherit nur-pkgs;
           };
         }
       ];
