@@ -1,6 +1,10 @@
 { config, lib, pkgs, inputs, opt-config, ... }:
 let
-  nnn = inputs.nur.nixosModules.nur {lib=lib; pkgs=pkgs.unstable;}; 
+  nnn = import inputs.nur {
+    nurpkgs = import pkgs.unstable {
+      system = "x86_64-linux";
+    };
+  };
 in
 {
   home.username = "${opt-config.username}";
