@@ -1,4 +1,7 @@
 { config, lib, pkgs, inputs, opt-config, ... }:
+let
+  nnn = inputs.nur.nixosModules.nur {lib=lib; pkgs=pkgs.unstable;}; 
+in
 {
   home.username = "${opt-config.username}";
   home.homeDirectory = "/home/${opt-config.username}";
@@ -41,6 +44,7 @@
       nur.repos.xddxdd.baidunetdisk
       nur.repos.xddxdd.dingtalk
       nur.repos.xddxdd.qq
+      nnn.repos.novel2430.wemeet-bin-bwrap
     ])
     ;
 
