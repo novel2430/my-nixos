@@ -1,4 +1,4 @@
-{ modify-pkgs, ... }:
+{ lib, modify-pkgs, ... }:
 {
   programs.chromium = {
     enable = true;
