@@ -63,6 +63,7 @@
     # Modify Packages
     modify-pkgs = import ./modify-pkgs {
       pkgs = nixpkgs.legacyPackages.${system};
+      unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
     };
 
   in
