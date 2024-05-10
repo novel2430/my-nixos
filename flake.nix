@@ -12,7 +12,6 @@
     # NUR
     nur = {
       url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -91,14 +90,13 @@
       };
       modules = [
         # Add NUR
-        nur.nixosModules.nur
-        # { nixpkgs.overlays = [ nur.overlay ]; }
+        { nixpkgs.overlays = [ nur.overlay ]; }
+        { nixpkgs-unstable.overlays = [ nur.overlay ]; }
         # Add Unstable Nixpkg
         ({
           nixpkgs.overlays = [
             (final: prev: {
               unstable = unstable-pkgs;
-              nur = nur;
             })
           ];
         })
