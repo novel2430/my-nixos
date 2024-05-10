@@ -12,7 +12,6 @@
     # NUR
     nur = {
       url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -55,6 +54,14 @@
       "electron-11.5.0"
       "openssl-1.1.1w"
     ];
+
+    nur-pkgs = import nur {
+      nurpkgs = import nixpkgs-unstable { 
+        inherit system;
+        config.allowUnfreePredicate = allowed-unfree-packages;
+        config.permittedInsecurePackages = allowed-insecure-packages;
+      };
+    };
   in
   rec {
     # Generate Function
@@ -68,7 +75,6 @@
       };
       modules = [
         # Add NUR
-        { nixpkgs-unstable.overlays = [ nur.overlay ];}
         { nixpkgs.overlays = [ nur.overlay ]; }
         # Add Unstable Nixpkg
         ({
@@ -94,6 +100,7 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
             opt-config = host-conf.config;
+            inherit nur-pkgs;
           };
         }
       ];

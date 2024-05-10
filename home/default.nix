@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, opt-config, ... }:
+{ config, lib, pkgs, nur-pkgs, inputs, opt-config, ... }:
 {
   home.username = "${opt-config.username}";
   home.homeDirectory = "/home/${opt-config.username}";
@@ -41,6 +41,8 @@
       nur.repos.xddxdd.baidunetdisk
       nur.repos.xddxdd.dingtalk
       nur.repos.xddxdd.qq
+
+      nur-pkgs.repos.novel2430.wechat-universal-bwrap
     ])
     ;
 
