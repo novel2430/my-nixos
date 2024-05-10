@@ -65,6 +65,7 @@
       inherit system;
       config.allowUnfreePredicate = allowed-unfree-packages;
       config.permittedInsecurePackages = allowed-insecure-packages;
+      overlays = [ nur.overlay ];
     };
     # Modify Packages
     modify-pkgs = import ./modify-pkgs {
@@ -91,7 +92,6 @@
       modules = [
         # Add NUR
         { nixpkgs.overlays = [ nur.overlay ]; }
-        { nixpkgs-unstable.overlays = [ nur.overlay ]; }
         # Add Unstable Nixpkg
         ({
           nixpkgs.overlays = [
