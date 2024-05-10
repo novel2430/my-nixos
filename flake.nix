@@ -56,7 +56,7 @@
     ];
 
     nur-pkgs = import nur {
-      nurpkgs = import nixpkgs-unstable { 
+      pkgs = import nixpkgs-unstable { 
         inherit system;
         config.allowUnfreePredicate = allowed-unfree-packages;
         config.permittedInsecurePackages = allowed-insecure-packages;
