@@ -12,6 +12,8 @@
     };
     # NUR
     nur.url = "github:nix-community/NUR";
+    #
+    internetSrc = (import ./internet-src/default.nix).internetSrc; 
   };
 
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
