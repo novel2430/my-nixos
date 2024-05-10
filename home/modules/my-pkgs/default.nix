@@ -5,7 +5,7 @@ let
 in
 {
   home.packages = [
-   wemeet-bin-bwrap
-   wechat-universal-bwrap
+   # wemeet-bin-bwrap
+   # wechat-universal-bwrap
   ];
 }
