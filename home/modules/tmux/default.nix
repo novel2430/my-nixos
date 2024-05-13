@@ -7,6 +7,7 @@
     historyLimit = 5000;
     keyMode = "vi";
     mouse = true;
+    shell = "${pkgs.zsh}/bin/zsh";
     terminal = "screen-256color";
     extraConfig = ''
       set -g pane-base-index 1
