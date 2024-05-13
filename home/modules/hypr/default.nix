@@ -7,6 +7,10 @@
     };
     settings = {
       "$mod" = "SUPER";
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
+      ];
       bind = [
         "$mod, Return, exec, foot" 
         "$mod, Q, killactive"
@@ -55,17 +59,21 @@
         layout = "master";
         gaps_in = 5;
         gaps_out = 15;
-        border_size = 5;
+        border_size = 2;
         "col.active_border" = "rgba(eceff4ff)";
         "col.inactive_border" = "rgba(595959aa)";
       };
       decoration = {
-        rounding = 10;
+        rounding = 5;
         active_opacity = 1.0;
         inactive_opacity = 0.6;
       };
       animations = {
-        enabled = true;
+        enabled = false;
+      };
+      master = {
+        new_is_master = true;
+        new_on_top = true;
       };
     };
   };
