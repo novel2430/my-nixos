@@ -7,7 +7,7 @@
     historyLimit = 5000;
     keyMode = "vi";
     mouse = true;
-    terminal = "xterm-256color";
+    terminal = "screen-256color";
     extraConfig = ''
       set -g pane-base-index 1
       set -g renumber-window on
