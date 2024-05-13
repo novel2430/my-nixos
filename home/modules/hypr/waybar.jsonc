@@ -113,8 +113,8 @@
         "format": "{id}",
         "all-outputs": false,
         "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        // "on-scroll-up": "hyprctl dispatch workspace e+1",
+        // "on-scroll-down": "hyprctl dispatch workspace e-1",
         "persistent-workspaces": {
           "1": ["HDMI-A-1", "eDP-1"],
           "2": ["HDMI-A-1", "eDP-1"],
@@ -122,7 +122,9 @@
           "4": ["HDMI-A-1", "eDP-1"],
           "5": ["HDMI-A-1", "eDP-1"],
           "6": ["HDMI-A-1", "eDP-1"],
-          "7": ["HDMI-A-1", "eDP-1"]
+          "7": ["HDMI-A-1", "eDP-1"],
+          "8": ["HDMI-A-1", "eDP-1"],
+          "9": ["HDMI-A-1", "eDP-1"],
         }
     },
     "sway/mode": {

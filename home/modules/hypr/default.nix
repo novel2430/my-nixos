@@ -118,13 +118,18 @@
       # ];
       exec-once = [
         "my-hpyr-autostart"
+        "spotify"
+        "nemo"
+        "brave --gtk-version=4 -enable-features=UseOzonePlatform -ozone-platform=wayland"
       ];
       monitor = [
         "eDP-1, disable"
       ];
       windowrulev2 = [
         "float,class:(org.jackhuang.hmcl.Launcher)"
-        "workspace 7,class:(Spotify)"
+        "workspace 9,class:(Spotify)"
+        "workspace 1,class:(Brave-browser)"
+        "workspace 8,class:(Nemo)"
       ];
     };
   };
