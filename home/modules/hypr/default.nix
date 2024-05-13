@@ -1,10 +1,16 @@
+{pkgs, opt-config}:
 {
   home.file.".config/hypr/waybar.jsonc".source = ./waybar.jsonc;
   home.file.".config/hypr/waybar.css".source = ./waybar.css;
 
-  imports = [
-    "./waybar.nix"
-    "./autostart.nix"
+  home.packages = [
+    (import ./autostart.nix {
+      inherit pkgs;
+      inherit opt-config;
+    })
+    (import ./waybar.nix {
+      inherit pkgs;
+    })
   ];
 
   wayland.windowManager.hyprland = {
