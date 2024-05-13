@@ -124,7 +124,7 @@
       ];
       windowrulev2 = [
         "float,class:(org.jackhuang.hmcl.Launcher)"
-        "workspace:7,class:(spotify)"
+        "workspace 7,class:(spotify)"
       ];
     };
   };
