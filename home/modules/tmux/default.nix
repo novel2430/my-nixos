@@ -11,7 +11,6 @@
     extraConfig = ''
       set -g pane-base-index 1
       set -g renumber-window on
-      set -as terminal-features ",*:RGB"
     '';
     plugins = with pkgs.tmuxPlugins; [
       nord 
