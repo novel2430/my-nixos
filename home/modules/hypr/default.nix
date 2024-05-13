@@ -56,8 +56,16 @@
         gaps_in = 5;
         gaps_out = 15;
         border_size = 5;
-        "col.active_border" = "rgba(ffffffff)";
+        "col.active_border" = "rgba(eceff4ff)";
         "col.inactive_border" = "rgba(595959aa)";
+      };
+      decoration = {
+        rounding = 10;
+        active_opacity = 1.0;
+        inactive_opacity = 0.6;
+      };
+      animations = {
+        enabled = true;
       };
     };
   };
