@@ -69,7 +69,7 @@
         inactive_opacity = 0.6;
       };
       animations = {
-        enabled = false;
+        enabled = true;
       };
       master = {
         new_is_master = true;
