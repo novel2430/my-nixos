@@ -44,6 +44,16 @@
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
       ];
+      input = {
+        kb_layout = "us";
+        follow_mouse = 0;
+        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+        repeat_rate = 25;
+        repeat_delay = 250;
+      };
+      general = {
+        layout = "master";
+      };
     };
   };
 }
