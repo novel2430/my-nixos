@@ -10,6 +10,7 @@
     extraConfig = ''
       set -g pane-base-index 1
       set -g renumber-window on
+      set -g default-terminal xterm-256color
       set -as terminal-features ",*:RGB"
     '';
     plugins = with pkgs.tmuxPlugins; [
