@@ -1,4 +1,4 @@
-{pkgs, opt-config}:
+{pkgs, opt-config, ...}:
 {
   home.file.".config/hypr/waybar.jsonc".source = ./waybar.jsonc;
   home.file.".config/hypr/waybar.css".source = ./waybar.css;
