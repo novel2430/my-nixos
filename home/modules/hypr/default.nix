@@ -56,8 +56,8 @@
         "$mod, mouse_up, workspace, e-1"
         "$mod SHIFT, F, exec, brave --gtk-version=4 -enable-features=UseOzonePlatform -ozone-platform=wayland"
         "$mod SHIFT, L, exec, my-swaylock manual"
-        " , Print, ecec, my-screenshot full"
-        "$mod, Print, ecec, my-screenshot select"
+        " , Print, exec, my-screenshot full"
+        "$mod, Print, exec, my-screenshot select"
       ];
       input = {
         kb_layout = "us";
