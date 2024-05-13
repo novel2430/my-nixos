@@ -119,6 +119,9 @@
       exec-once = [
         "my-hpyr-autostart"
       ];
+      monitor = [
+        "eDP-1, disable"
+      ];
     };
   };
 }
