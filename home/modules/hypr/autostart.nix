@@ -11,7 +11,7 @@ pkgs.writeShellScriptBin "my-hpyr-autostart" ''
   # Close eDP-1
   # ${wlopm} --off eDP-1 
   # Wallpaper
-  ${swaybg} -i ${opt-config.wall-img} -m fill &
+  # ${swaybg} -i ${opt-config.wall-img} -m fill &
   # bar
   my-hypr-run-waybar &
   # nm-applet
@@ -33,4 +33,6 @@ pkgs.writeShellScriptBin "my-hpyr-autostart" ''
   #systemctl --user restart clash.service
   # IME
   fcitx5 --replace -d &
+  # SwayIdle
+  my-swayidle
 ''
