@@ -1,4 +1,7 @@
 {
+  home.file.".config/hypr/waybar.jsonc".source = ./waybar.jsonc;
+  home.file.".config/hypr/waybar.css".source = ./waybar.css;
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -102,8 +105,8 @@
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
       ];
-      exec = [
-        "dunstify 'HIIIIIIIIII'"
+      exec-once = [
+        "my-hpyr-autostart"
       ];
     };
   };
