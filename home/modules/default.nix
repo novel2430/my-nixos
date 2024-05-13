@@ -16,6 +16,7 @@
     ./tmux
     ./mimetype
     ./fzf
+    ./hypr
   ]
   ;
 }
