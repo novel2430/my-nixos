@@ -9,7 +9,7 @@ let
 in
 pkgs.writeShellScriptBin "my-hpyr-autostart" ''
   # Close eDP-1
-  wlopm --off eDP-1 
+  ${wlopm} --off eDP-1 
   # Wallpaper
   ${swaybg} -i ${opt-config.wall-img} -m fill &
   # bar
