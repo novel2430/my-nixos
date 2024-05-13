@@ -14,6 +14,12 @@
       bindel = [
         ", XF86AudioRaiseVolume, exec, my-volume up"
         ", XF86AudioLowerVolume, exec, my-volume down"
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        "$mod, J, layoutmsg, cyclenext"
+        "$mod, K, layoutmsg, cycleprev"
       ];
       bindl = [
         ", XF86AudioMute, exec, my-volume mute"
@@ -25,12 +31,6 @@
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
         "$mod, D, exec, wofi --show drun"
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
-        "$mod, J, layoutmsg, cyclenext"
-        "$mod, K, layoutmsg, cycleprev"
         "$mod SHIFT, Return, layoutmsg, swapwithmaster"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
