@@ -32,6 +32,7 @@
       motrix
       gnome.file-roller
       wl-clipboard
+      python3
       # Modify Packages
       modify-pkgs.hmcl
       modify-pkgs.openttd
