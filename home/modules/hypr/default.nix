@@ -68,6 +68,8 @@
         "$mod SHIFT, 0, movetoworkspace, 10"
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
+        "$mod SHIFT, right, workspace, e+1"
+        "$mod SHIFT, left, workspace, e-1"
         "$mod SHIFT, F, exec, brave --gtk-version=4 -enable-features=UseOzonePlatform -ozone-platform=wayland"
         "$mod SHIFT, L, exec, my-swaylock manual"
         " , Print, exec, my-screenshot full"
