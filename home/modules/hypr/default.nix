@@ -8,8 +8,8 @@
     settings = {
       "$mod" = "SUPER";
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
       ];
       bind = [
         "$mod, Return, exec, foot" 
