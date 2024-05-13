@@ -7,10 +7,10 @@
     historyLimit = 5000;
     keyMode = "vi";
     mouse = true;
+    terminal = "xterm-256color";
     extraConfig = ''
       set -g pane-base-index 1
       set -g renumber-window on
-      set -g default-terminal xterm-256color
       set -as terminal-features ",*:RGB"
     '';
     plugins = with pkgs.tmuxPlugins; [
