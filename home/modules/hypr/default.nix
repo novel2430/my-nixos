@@ -2,6 +2,11 @@
   home.file.".config/hypr/waybar.jsonc".source = ./waybar.jsonc;
   home.file.".config/hypr/waybar.css".source = ./waybar.css;
 
+  imports = [
+    "./waybar.nix"
+    "./autostart.nix"
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
