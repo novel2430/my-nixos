@@ -79,6 +79,7 @@
         " , Print, exec, my-screenshot full"
         "$mod, Print, exec, my-screenshot select"
         "$mod, Tab, exec, ~/.config/hypr/toggle.py"
+        "$mod, C, exec, my-show-clipboard"
       ];
       input = {
         kb_layout = "us";
