@@ -118,9 +118,6 @@
       # ];
       exec-once = [
         "my-hpyr-autostart"
-        "spotify"
-        "nemo"
-        "brave --gtk-version=4 -enable-features=UseOzonePlatform -ozone-platform=wayland"
       ];
       monitor = [
         "eDP-1, disable"
