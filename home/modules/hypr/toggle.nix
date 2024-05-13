@@ -1,6 +1,6 @@
 {
   home.file.".config/hypr/toggle.py" = {
-    source = ./toggle.nix;
+    source = ./toggle.py;
     executable = true;
   };
 }
