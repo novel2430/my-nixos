@@ -37,7 +37,7 @@ for i in range(len(clients_array)):
         wofi_str = wofi_str + "\n"
     wofi_str = wofi_str + clients_array[i].build_string()
 # wofi run
-wofi_cmd = "wofi -dmenu -Ddmenu-print_line_num=true"
+wofi_cmd = "wofi --show dmenu -Ddmenu-print_line_num=true"
 index = subprocess_run_input(wofi_cmd, wofi_str)
 # switch window
 hyprctl_cmd = 'hyprctl dispatch focuswindow address:{}'.format(clients_array[int(index)].addr)

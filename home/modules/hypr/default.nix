@@ -74,6 +74,7 @@
         "$mod SHIFT, L, exec, my-swaylock manual"
         " , Print, exec, my-screenshot full"
         "$mod, Print, exec, my-screenshot select"
+        "$mod, Tab, exec, ~/.config/hypr/toggle.py"
       ];
       input = {
         kb_layout = "us";
