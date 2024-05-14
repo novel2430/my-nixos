@@ -17,16 +17,16 @@ require("catppuccin").setup({
     no_underline = false, -- Force no underline
     styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
         comments = { "italic" }, -- Change the style of comments
-        conditionals = { "italic" },
+        conditionals = {},
         loops = {},
         functions = { "bold" },
-        keywords = { "bold" },
+        keywords = {},
         strings = {},
         variables = {},
         numbers = {},
         booleans = {},
         properties = {},
-        types = { "bold" },
+        types = {},
         operators = {},
         -- miscs = {}, -- Uncomment to turn off hard-coded styles
     },
