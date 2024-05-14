@@ -106,6 +106,7 @@
       # {
       #   plugin = rustaceanvim;
       # }
+      catppuccin-nvim
     ];
   };
 }
