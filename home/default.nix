@@ -36,10 +36,12 @@
       # Modify Packages
       modify-pkgs.hmcl
       modify-pkgs.openttd
+      rustc
+      cargo
       # Custom Packages
-      # custom-pkgs.*
+      ## custom-pkgs.*
       # Unstable
-      # unstable.*
+      ## unstable.*
       # NUR
       nur.repos.novel2430.wemeet-bin-bwrap
       unstable.nur.repos.novel2430.wechat-universal-bwrap
