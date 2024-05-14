@@ -18,6 +18,7 @@
       jdt-language-server # Java
       nil # Nix
       nodePackages.bash-language-server # Bash
+      rust-analyzer # Rust
     ];
     extraLuaConfig = ''
       ${builtins.readFile ./options/basic-autocommand.lua}
