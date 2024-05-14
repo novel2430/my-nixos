@@ -98,15 +98,15 @@
       # markdown-preview
       markdown-preview-nvim
       # Vscode colorscheme
-      {
-        plugin = custom-pkgs.vscode-nvim;
-        config = toLuaFile ./plugins/vscode-nvim.lua;
-      }
-      # rustaceanvim (rust tools)
       # {
-      #   plugin = rustaceanvim;
+      #   plugin = custom-pkgs.vscode-nvim;
+      #   config = toLuaFile ./plugins/vscode-nvim.lua;
       # }
-      catppuccin-nvim
+      # Catppuccin colorscheme
+      {
+        plugin = catppuccin-nvim;
+        config = toLuaFile ./plugins/catppuccin-nvim.lua;
+      }
     ];
   };
 }
