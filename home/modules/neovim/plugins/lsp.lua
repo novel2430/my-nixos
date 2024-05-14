@@ -107,6 +107,13 @@ local lsp_servers = {
   nil_ls = {},
   -- bashls
   bashls = {},
+  rust_analyzer = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = false;
+      }
+    }
+  },
 }
 
 -- Start lspconfig

@@ -103,9 +103,9 @@
         config = toLuaFile ./plugins/vscode-nvim.lua;
       }
       # rustaceanvim (rust tools)
-      {
-        plugin = rustaceanvim;
-      }
+      # {
+      #   plugin = rustaceanvim;
+      # }
     ];
   };
 }
