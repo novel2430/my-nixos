@@ -6,6 +6,6 @@ vimUtils.buildVimPlugin {
   src = builtins.fetchGit {
     url = "https://github.com/novel2430/vscode.nvim.git";
     ref = "main";
-    rev = "aaac667f49812794f23dd5713840e11b1151a94d";
+    rev = "1b4d5dc51539f0ade4bb1ffc1fbae41b5f8846ec";
   };
 }
