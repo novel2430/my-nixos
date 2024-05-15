@@ -99,10 +99,10 @@
       # markdown-preview
       markdown-preview-nvim
       # Vscode colorscheme
-      # {
-      #   plugin = custom-pkgs.vscode-nvim;
-      #   config = toLuaFile ./plugins/vscode-nvim.lua;
-      # }
+      {
+        plugin = custom-pkgs.vscode-nvim;
+        config = toLuaFile ./plugins/vscode-nvim.lua;
+      }
       # Catppuccin colorscheme
       {
         plugin = catppuccin-nvim;
