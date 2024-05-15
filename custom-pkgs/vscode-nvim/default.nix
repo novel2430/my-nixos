@@ -4,8 +4,8 @@ with pkgs;
 vimUtils.buildVimPlugin {
   name = "vscode-nvim";
   src = builtins.fetchGit {
-    url = "https://github.com/Mofiqul/vscode.nvim.git";
+    url = "https://github.com/novel2430/vscode.nvim.git";
     ref = "main";
-    rev = "1a2cb491a962acf3bbf53c6d0a61b4ec76012570";
+    rev = "aaac667f49812794f23dd5713840e11b1151a94d";
   };
 }
