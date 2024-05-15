@@ -24,6 +24,7 @@
       ${builtins.readFile ./options/basic-autocommand.lua}
       ${builtins.readFile ./options/basic-keymap.lua}
       ${builtins.readFile ./options/options.lua}
+      ${builtins.readFile ./options/colorscheme.lua}
     '';
     plugins = with pkgs.vimPlugins; [
       # nvim-autopairs

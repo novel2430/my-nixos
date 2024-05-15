@@ -35,5 +35,3 @@ require('vscode').setup({
 })
 -- require('vscode').load()
 
--- load the theme without affecting devicon colors.
-vim.cmd.colorscheme "vscode"
