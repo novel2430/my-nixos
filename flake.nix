@@ -35,6 +35,10 @@
       name = "Timi-TM1701";
       config = (import ./hosts/${name}/options.nix).opt-config;
     };
+    ThinkPad-X230-conf = rec {
+      name = "ThinkPad-X230";
+      config = (import ./hosts/${name}/options.nix).opt-config;
+    };
 
     # Superset of the default unfree packages
     allowed-unfree-packages = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
@@ -123,6 +127,7 @@
       "${Default-conf.name}" = system-gen { host-conf = Default-conf; };
       "${LENOVO-5C2-conf.name}" = system-gen { host-conf = LENOVO-5C2-conf; };
       "${Timi-TM1701-conf.name}" = system-gen { host-conf = Timi-TM1701-conf; };
+      "${ThinkPad-X230-conf.name}" = system-gen { host-conf = ThinkPad-X230-conf; };
     };
   };
 }

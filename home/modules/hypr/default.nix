@@ -129,6 +129,7 @@
       ];
       monitor = [
         "eDP-1, disable"
+        "LVDS-1, disable"
       ];
       windowrulev2 = [
         "float,class:(org.jackhuang.hmcl.Launcher)"
