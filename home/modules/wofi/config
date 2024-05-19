@@ -1,6 +1,4 @@
 style=/home/novel2430/.config/wofi/style.css
-xoffset=710
-yoffset=275
 width=25%
 height=25%
 always_parse_args=true
