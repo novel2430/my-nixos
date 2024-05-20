@@ -33,7 +33,7 @@
     monitors = {
       "output:HDMI-A-2" = {
         depth = "8";
-        mode = "1920x1080";
+        mode = "mirror eDP-1";
         position = "auto";
         scale = "1.0";
         transform = "normal";
