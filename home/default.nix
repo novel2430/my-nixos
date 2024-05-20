@@ -7,7 +7,7 @@
     ./modules
   ];
 
-  home.packages = 
+  home.packages = lib.mkMerge [
     (with pkgs;[
       neofetch
       socat
@@ -33,6 +33,7 @@
       gnome.file-roller
       wl-clipboard
       python3
+      jdk21
       # Modify Packages
       modify-pkgs.hmcl
       modify-pkgs.openttd
@@ -46,13 +47,15 @@
       nur.repos.novel2430.wemeet-bin-bwrap
       unstable.nur.repos.novel2430.wechat-universal-bwrap
       nur.repos.novel2430.zju-connect
-      nur.repos.novel2430.wpsoffice-cn
+      # nur.repos.novel2430.wpsoffice-cn
       nur.repos.xddxdd.baidunetdisk
       nur.repos.xddxdd.dingtalk
       nur.repos.xddxdd.qq
-
     ])
-    ;
+    (lib.mkIf (opt-config.in-china == true) [
+      pkgs.nur.repos.novel2430.wpsoffice-cn
+    ])
+  ];
 
   # XDG_DATA_DIRS
   xdg.systemDirs.data = [

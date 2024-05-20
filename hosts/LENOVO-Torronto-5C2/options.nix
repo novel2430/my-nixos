@@ -58,5 +58,8 @@
     zju-rvpn-port = "7895";
     zju-rvpn-config = "/home/${username}/zjuconnect/config.toml";
 
+    # In China
+    in-china = true;
+
   };
 }
