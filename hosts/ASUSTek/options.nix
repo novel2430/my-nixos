@@ -33,7 +33,7 @@
     monitors = {
       "output:HDMI-A-2" = {
         depth = "8";
-        mode = "1080x720";
+        mode = "1280x720";
         position = "auto";
         scale = "1.0";
         transform = "normal";
