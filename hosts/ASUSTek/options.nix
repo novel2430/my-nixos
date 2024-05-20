@@ -32,6 +32,12 @@
     # }
     monitors = {
     };
+    # Monitors (For Hyprland Config)
+    # Example :
+    # hypr-monitors = [
+    #   "eDP-1, disable"
+    # ];
+    hypr-monitors = [];
 
     # Use Clash
     use-clash = false;
