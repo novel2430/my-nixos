@@ -38,7 +38,6 @@
     #   "eDP-1, disable"
     # ];
     hypr-monitors = [
-      "LVDS-1, disable"
     ];
 
     # Use Clash
