@@ -39,6 +39,10 @@
       name = "ThinkPad-X230";
       config = (import ./hosts/${name}/options.nix).opt-config;
     };
+    ASUSTek-conf = rec {
+      name = "ASUSTek";
+      config = (import ./hosts/${name}/options.nix).opt-config;
+    };
 
     # Superset of the default unfree packages
     allowed-unfree-packages = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
@@ -128,6 +132,7 @@
       "${LENOVO-5C2-conf.name}" = system-gen { host-conf = LENOVO-5C2-conf; };
       "${Timi-TM1701-conf.name}" = system-gen { host-conf = Timi-TM1701-conf; };
       "${ThinkPad-X230-conf.name}" = system-gen { host-conf = ThinkPad-X230-conf; };
+      "${ASUSTek-conf.name}" = system-gen { host-conf = ASUSTek-conf; };
     };
   };
 }
