@@ -127,10 +127,7 @@
       exec-once = [
         "my-hpyr-autostart"
       ];
-      monitor = [
-        "eDP-1, disable"
-        "LVDS-1, disable"
-      ];
+      monitor = opt-config.hypr-monitors;
       windowrulev2 = [
         "float,class:(org.jackhuang.hmcl.Launcher)"
         "workspace 9,class:(Spotify)"

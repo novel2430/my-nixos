@@ -40,6 +40,10 @@
         vrr = "false";
       };
     };
+    # Monitors (For Hyprland Config)
+    hypr-monitors = [
+      "eDP-1, disable"
+    ];
 
     # Use Clash
     use-clash = true;
