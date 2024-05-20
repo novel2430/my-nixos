@@ -47,6 +47,7 @@
     # ];
     hypr-monitors = [
       "HDMI-A-2, 1280x720, auto, auto"
+      "eDP-1, disable"
     ];
 
     # Use Clash
