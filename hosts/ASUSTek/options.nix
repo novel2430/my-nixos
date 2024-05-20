@@ -45,7 +45,9 @@
     # hypr-monitors = [
     #   "eDP-1, disable"
     # ];
-    hypr-monitors = [];
+    hypr-monitors = [
+      "HDMI-A-2, 1080x720, auto, auto"
+    ];
 
     # Use Clash
     use-clash = false;
