@@ -21,8 +21,6 @@ pkgs.writeShellScriptBin "my-swaylock" ''
               --indicator \
               --indicator-radius $indicator_radius \
               --indicator-thickness $indicator_thickness \
-              --indicator-x-position $x_pos \
-              --indicator-y-position $y_pos \
               --effect-blur 7x5 \
               --effect-vignette 0.5:0.5 \
               --ring-color $b_color \
@@ -44,13 +42,11 @@ pkgs.writeShellScriptBin "my-swaylock" ''
     idle)
       ${swaylock} \
               --ignore-empty-password \
-              --image ${lock-img} \
+              --screenshots \
               --clock \
               --indicator \
               --indicator-radius $indicator_radius \
               --indicator-thickness $indicator_thickness \
-              --indicator-x-position $x_pos \
-              --indicator-y-position $y_pos \
               --effect-vignette 0.5:0.5 \
               --ring-color $b_color \
               --ring-ver-color $b_color \
