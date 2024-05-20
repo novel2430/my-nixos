@@ -34,11 +34,11 @@
       wl-clipboard
       python3
       jdk21
+      rustc
+      cargo
       # Modify Packages
       modify-pkgs.hmcl
       modify-pkgs.openttd
-      rustc
-      cargo
       # Custom Packages
       ## custom-pkgs.*
       # Unstable
@@ -47,13 +47,15 @@
       nur.repos.novel2430.wemeet-bin-bwrap
       unstable.nur.repos.novel2430.wechat-universal-bwrap
       nur.repos.novel2430.zju-connect
-      # nur.repos.novel2430.wpsoffice-cn
       nur.repos.xddxdd.baidunetdisk
       nur.repos.xddxdd.dingtalk
       nur.repos.xddxdd.qq
     ])
     (lib.mkIf (opt-config.in-china == true) [
       pkgs.nur.repos.novel2430.wpsoffice-cn
+    ])
+    (lib.mkIf (opt-config.in-china == false) [
+      custom-pkgs.wpsoffice
     ])
   ];
 
