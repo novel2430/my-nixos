@@ -42,7 +42,7 @@ pkgs.writeShellScriptBin "my-swaylock" ''
     idle)
       ${swaylock} \
               --ignore-empty-password \
-              --screenshots \
+              --image ${lock-img} \
               --clock \
               --indicator \
               --indicator-radius $indicator_radius \
