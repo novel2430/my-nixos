@@ -9,8 +9,8 @@ pkgs.writeShellScriptBin "my-swayidle" ''
   lock_cmd="my-swaylock idle &"
 
   ${swayidle} -w \
-    timeout 1800 "''${dpms_off_cmd}" \
+    timeout 5 "''${dpms_off_cmd}" \
       resume "''${dpms_on_cmd}" \
-    timeout 3600 "''${lock_cmd}" \
+    timeout 10 "''${lock_cmd}" \
       resume "''${dpms_on_cmd}"
 ''
