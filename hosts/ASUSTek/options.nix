@@ -46,7 +46,7 @@
     #   "eDP-1, disable"
     # ];
     hypr-monitors = [
-      "HDMI-A-2, 1920x1080, auto, 1.25"
+      "HDMI-A-2, 1280x720, auto, 1"
       "eDP-1, disable"
     ];
 
