@@ -176,7 +176,7 @@
   # Zsh
   programs.zsh.enable = true;
   # Auto cpu freq
-  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.enable = opt-config.autocpu;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

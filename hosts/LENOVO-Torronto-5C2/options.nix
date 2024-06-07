@@ -65,5 +65,7 @@
     # In China
     in-china = true;
 
+    # Use AutoCPU
+    autocpu = false;
   };
 }
