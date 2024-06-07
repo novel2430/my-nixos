@@ -40,13 +40,13 @@
     hypr-monitors = [];
 
     # Use Clash
-    use-clash = false;
+    use-clash = true;
     clash-dir = "/home/${username}/clash";
     # Proxy
     use-proxy = true;
-    http-proxy-host = "192.168.31.240";
+    http-proxy-host = "127.0.0.1";
     http-proxy-port = "7890";
-    https-proxy-host = "192.168.31.240";
+    https-proxy-host = "127.0.0.1";
     https-proxy-port = "7890";
     http-proxy = "http://${http-proxy-host}:${http-proxy-port}";
     https-proxy = "http://${https-proxy-host}:${https-proxy-port}";
