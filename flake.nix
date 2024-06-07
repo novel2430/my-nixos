@@ -43,6 +43,10 @@
       name = "ASUSTek";
       config = (import ./hosts/${name}/options.nix).opt-config;
     };
+    MAXSUN-b450m-conf = rec {
+      name = "MAXSUN-b450m";
+      config = (import ./hosts/${name}/options.nix).opt-config;
+    };
 
     # Superset of the default unfree packages
     allowed-unfree-packages = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
@@ -133,6 +137,7 @@
       "${Timi-TM1701-conf.name}" = system-gen { host-conf = Timi-TM1701-conf; };
       "${ThinkPad-X230-conf.name}" = system-gen { host-conf = ThinkPad-X230-conf; };
       "${ASUSTek-conf.name}" = system-gen { host-conf = ASUSTek-conf; };
+      "${MAXSUN-b450m-conf.name}" = system-gen { host-conf = MAXSUN-b450m-conf; };
     };
   };
 }
