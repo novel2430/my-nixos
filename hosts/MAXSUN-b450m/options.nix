@@ -16,7 +16,7 @@
     wall-img = "/home/${username}/.config/wayfire/wall.png";
 
     # intel, nvidia, intel-nvidia
-    gpu-type = "intel";
+    gpu-type = "amd";
     intel-bus-id = "PCI:0:2:0";
     nvidia-bus-id = "PCI:3:0:0";
 

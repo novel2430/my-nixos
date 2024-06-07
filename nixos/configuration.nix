@@ -26,6 +26,10 @@
   lib.optionals (opt-config.gpu-type == "intel-nvidia") [
     ./modules/nvidia.nix
   ]
+  ++
+  lib.optionals (opt-config.gpu-type == "amd") [
+    ./modules/amd.nix
+  ]
   ;
 
   # Use the systemd-boot EFI boot loader.
