@@ -36,6 +36,7 @@
       jdk21
       rustc
       cargo
+      appimage-run
       # Modify Packages
       modify-pkgs.hmcl
       modify-pkgs.openttd
