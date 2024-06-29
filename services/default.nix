@@ -11,6 +11,10 @@
     lib.optionals (opt-config.use-zju-rvpn == true) [
       ./zju-connect.nix
     ]
+    ++
+    lib.optionals (opt-config.no-keyboard == true) [
+      ./disable-keyboard.nix
+    ]
   ;
 
 }

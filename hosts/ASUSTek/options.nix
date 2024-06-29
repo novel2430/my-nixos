@@ -72,5 +72,8 @@
 
     # Use AutoCPU
     autocpu = false;
+
+    # No Keyboard
+    no-keyboard = false;
   };
 }
