@@ -39,6 +39,14 @@
         transform = "normal";
         vrr = "false";
       };
+      "output:HDMI-A-1" = {
+        depth = "8";
+        mode = "1280x720";
+        position = "auto";
+        scale = "1.0";
+        transform = "normal";
+        vrr = "false";
+      };
     };
     # Monitors (For Hyprland Config)
     hypr-monitors = [
