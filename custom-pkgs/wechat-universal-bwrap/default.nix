@@ -113,7 +113,6 @@ let
       mkdir -p $out
       mv opt/wechat-beta opt/${_pkgname}
       cp -r opt $out
-      ls $out
     '';
   };
 
@@ -249,7 +248,7 @@ stdenv.mkDerivation rec {
     #         ${wechat-universal-src}/opt/apps/com.tencent.wechat/entries/icons/hicolor/''${res}x''${res}/apps/com.tencent.wechat.png \
     #         $out/share/icons/hicolor/''${res}x''${res}/apps/${_pkgname}.png
     # done
-    install -DTm644 ${wechat-universal-src}/opt/wechat-beta/icons/wechat.png $out/usr/share/icons/hicolor/256x256/apps/${_pkgname}.png
+    install -DTm644 ${wechat-universal-src}/opt/${_pkgname}/icons/wechat.png $out/usr/share/icons/hicolor/256x256/apps/${_pkgname}.png
     makeWrapper ${fhs}/bin/${_pkgname} $out/bin/${pname}
     runHook postInstall
   '';
