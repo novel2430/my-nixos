@@ -30,10 +30,10 @@ let
       libxml2 # for xmllint
     ] ++ lib.optionals (stdenv.hostPlatform.emulatorAvailable buildPackages && !stdenv.buildPlatform.canExecute stdenv.hostPlatform) [
       mesonEmulatorHook
-    ] ++ lib.optionals waylandSupport [
+    ] ++ lib.optionals (stdenv.isLinux) [
       wayland-scanner
-    ] ++ lib.optionals vulkanSupport [
-      shaderc # for glslc
+    # ] ++ lib.optionals vulkanSupport [
+    #   shaderc # for glslc
     ] ++ setupHooks;
 
     postPatch = ''
