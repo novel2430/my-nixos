@@ -8,7 +8,92 @@ let
   #     hash = "sha256-KLNW1ZDuaO9ibi75ggst0hRBSEqaBCpaPwxA6d/E9Pg=";
   #   };
   # });
-  gtk-4-12-5 = custom-pkgs.gtk4-12-5;
+  gtk-4-12-5 = pkgs.gtk4.overrideAttrs (final: prev : with pkgs; rec {
+    pname = "gtk4";
+    version = "4.12.5";
+
+    src = fetchurl {
+      url = "mirror://gnome/sources/gtk/${lib.versions.majorMinor final.version}/gtk-${final.version}.tar.xz";
+      hash = "sha256-KLNW1ZDuaO9ibi75ggst0hRBSEqaBCpaPwxA6d/E9Pg=";
+    };
+
+    nativeBuildInputs = [
+      gettext
+      gobject-introspection
+      makeWrapper
+      meson
+      ninja
+      pkg-config
+      python3
+      sassc
+      gi-docgen
+      libxml2 # for xmllint
+    ] ++ lib.optionals (compileSchemas && !stdenv.buildPlatform.canExecute stdenv.hostPlatform) [
+      mesonEmulatorHook
+    ] ++ lib.optionals waylandSupport [
+      wayland-scanner
+    ] ++ lib.optionals vulkanSupport [
+      shaderc # for glslc
+    ] ++ setupHooks;
+
+    postPatch = ''
+      # this conditional gates the installation of share/gsettings-schemas/.../glib-2.0/schemas/gschemas.compiled.
+      substituteInPlace meson.build \
+        --replace 'if not meson.is_cross_build()' 'if ${lib.boolToString (stdenv.hostPlatform.emulatorAvailable buildPackages)}'
+
+      files=(
+        build-aux/meson/gen-demo-header.py
+        build-aux/meson/gen-visibility-macros.py
+        demos/gtk-demo/geninclude.py
+        gdk/broadway/gen-c-array.py
+        gdk/gen-gdk-gresources-xml.py
+        gtk/gen-gtk-gresources-xml.py
+        gtk/gentypefuncs.py
+      )
+
+      chmod +x ''${files[@]}
+      patchShebangs ''${files[@]}
+    '';
+
+    postFixup =  lib.optionalString (!stdenv.isDarwin) ''
+      demos=(gtk4-demo gtk4-demo-application gtk4-icon-browser gtk4-widget-factory)
+
+      for program in ''${demos[@]}; do
+        wrapProgram $dev/bin/$program \
+          --prefix XDG_DATA_DIRS : "$GSETTINGS_SCHEMAS_PATH:$out/share/gsettings-schemas/${pname}-${version}"
+      done
+    '' + lib.optionalString x11Support ''
+      # Cannot be in postInstall, otherwise _multioutDocs hook in preFixup will move right back.
+      moveToOutput "share/doc" "$devdoc"
+    '';
+
+    passthru = {
+      updateScript = gnome.updateScript {
+        packageName = "gtk";
+        versionPolicy = "odd-unstable";
+        attrPath = "gtk4";
+      };
+    };
+
+    meta = with lib; {
+      description = "A multi-platform toolkit for creating graphical user interfaces";
+      longDescription = ''
+        GTK is a highly usable, feature rich toolkit for creating
+        graphical user interfaces which boasts cross platform
+        compatibility and an easy to use API.  GTK it is written in C,
+        but has bindings to many other popular programming languages
+        such as C++, Python and C# among others.  GTK is licensed
+        under the GNU LGPL 2.1 allowing development of both free and
+        proprietary software with GTK without any license fees or
+        royalties.
+      '';
+      homepage = "https://www.gtk.org/";
+      license = licenses.lgpl2Plus;
+      maintainers = teams.gnome.members ++ (with maintainers; [ raskin ]);
+      platforms = platforms.all;
+      changelog = "https://gitlab.gnome.org/GNOME/gtk/-/raw/${version}/NEWS";
+    };
+  });
 
   deps = with pkgs; [
     alsa-lib at-spi2-atk at-spi2-core atk cairo cups dbus expat
