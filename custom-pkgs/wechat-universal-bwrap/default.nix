@@ -110,12 +110,8 @@ let
     sourceRoot = ".";
 
     installPhase = ''
-      ls
       mkdir -p $out
-      
-      mv opt/apps/com.tencent.wechat/files opt/${_pkgname}
-      rm opt/${_pkgname}/${_lib_uos}.so
-
+      mv opt/wechat-beta opt/${_pkgname}
       cp -r opt $out
     '';
   };
@@ -247,11 +243,12 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/bin
     echo 'Installing icons...'
-    for res in 16 32 48 64 128 256; do
-        install -Dm644 \
-            ${wechat-universal-src}/opt/apps/com.tencent.wechat/entries/icons/hicolor/''${res}x''${res}/apps/com.tencent.wechat.png \
-            $out/share/icons/hicolor/''${res}x''${res}/apps/${_pkgname}.png
-    done
+    # for res in 16 32 48 64 128 256; do
+    #     install -Dm644 \
+    #         ${wechat-universal-src}/opt/apps/com.tencent.wechat/entries/icons/hicolor/''${res}x''${res}/apps/com.tencent.wechat.png \
+    #         $out/share/icons/hicolor/''${res}x''${res}/apps/${_pkgname}.png
+    # done
+    install -DTm644 ${wechat-universal-src}/opt/wechat-beta/icons/wechat.png $out/usr/share/icons/hicolor/256x256/apps/${_pkgname}.png
     makeWrapper ${fhs}/bin/${_pkgname} $out/bin/${pname}
     runHook postInstall
   '';
