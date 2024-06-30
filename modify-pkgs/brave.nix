@@ -28,7 +28,7 @@ let
       sassc
       gi-docgen
       libxml2 # for xmllint
-    ] ++ lib.optionals (compileSchemas && !stdenv.buildPlatform.canExecute stdenv.hostPlatform) [
+    ] ++ lib.optionals (stdenv.hostPlatform.emulatorAvailable buildPackages && !stdenv.buildPlatform.canExecute stdenv.hostPlatform) [
       mesonEmulatorHook
     ] ++ lib.optionals waylandSupport [
       wayland-scanner
