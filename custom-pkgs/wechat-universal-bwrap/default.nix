@@ -113,6 +113,7 @@ let
       mkdir -p $out
       mv opt/wechat-beta opt/${_pkgname}
       cp -r opt $out
+      ls $out
     '';
   };
 
