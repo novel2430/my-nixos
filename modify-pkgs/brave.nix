@@ -34,7 +34,7 @@ let
       wayland-scanner
     # ] ++ lib.optionals vulkanSupport [
     #   shaderc # for glslc
-    ] ++ setupHooks;
+    ] ++ prev.setupHooks;
 
     postPatch = ''
       # this conditional gates the installation of share/gsettings-schemas/.../glib-2.0/schemas/gschemas.compiled.
