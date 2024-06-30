@@ -32,8 +32,8 @@ let
       mesonEmulatorHook
     ] ++ lib.optionals (stdenv.isLinux) [
       wayland-scanner
-    # ] ++ lib.optionals vulkanSupport [
-    #   shaderc # for glslc
+    ] ++ lib.optionals (stdenv.isLinux) [
+      shaderc # for glslc
     ] ++ prev.setupHooks;
 
     postPatch = ''
