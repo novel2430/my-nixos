@@ -2,6 +2,7 @@
   description = "My NixOS flake";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-23.url = "github:NixOS/nixpkgs/nixos-23.11";
     # Unstable
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # HomeManager
@@ -79,6 +80,12 @@
       config.permittedInsecurePackages = allowed-insecure-packages;
       overlays = [ nur.overlay ];
     };
+    # 23.11 Packages
+    nix23-pkgs = import inputs.nixpkgs-23 {
+      inherit system;
+      config.allowUnfreePredicate = allowed-unfree-packages;
+      config.permittedInsecurePackages = allowed-insecure-packages;
+    };
     # Modify Packages
     modify-pkgs = import ./modify-pkgs {
       pkgs = stable-pkgs;
@@ -104,11 +111,12 @@
       modules = [
         # Add NUR
         { nixpkgs.overlays = [ nur.overlay ]; }
-        # Add Unstable Nixpkg
+        # Add Unstable Nixpkg & 23 Nixpkg
         ({
           nixpkgs.overlays = [
             (final: prev: {
               unstable = unstable-pkgs;
+              nix-23 = nix23-pkgs;
             })
           ];
         })

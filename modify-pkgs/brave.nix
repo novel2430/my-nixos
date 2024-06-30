@@ -1,34 +1,15 @@
 { pkgs, ... }:
 let
   lib = pkgs.lib;
-  gtk-4-12-5 = pkgs.gtk4.overrideAttrs (final: prev : with pkgs; rec {
+  gtk-4-12-5 = pkgs.nix-23.gtk4.overrideAttrs (final: prev : with pkgs; rec {
     version = "4.12.5";
     src = fetchurl {
       url = "mirror://gnome/sources/gtk/${lib.versions.majorMinor final.version}/gtk-${final.version}.tar.xz";
       hash = "sha256-KLNW1ZDuaO9ibi75ggst0hRBSEqaBCpaPwxA6d/E9Pg=";
     };
-    postPatch = ''
-      # this conditional gates the installation of share/gsettings-schemas/.../glib-2.0/schemas/gschemas.compiled.
-      substituteInPlace meson.build \
-        --replace 'if not meson.is_cross_build()' 'if ${lib.boolToString (stdenv.hostPlatform.emulatorAvailable buildPackages)}'
-
-      files=(
-        build-aux/meson/gen-demo-header.py
-        build-aux/meson/gen-visibility-macros.py
-        demos/gtk-demo/geninclude.py
-        gdk/broadway/gen-c-array.py
-        gdk/gen-gdk-gresources-xml.py
-        gtk/gen-gtk-gresources-xml.py
-        gtk/gentypefuncs.py
-      )
-
-      chmod +x ''${files[@]}
-      patchShebangs ''${files[@]}
-    '';
-
   });
 
-  deps = with pkgs; [
+  deps = with pkgs.nix-23; [
     alsa-lib at-spi2-atk at-spi2-core atk cairo cups dbus expat
     fontconfig freetype gdk-pixbuf glib gtk3 gtk-4-12-5 libdrm xorg.libX11 libGL
     libxkbcommon xorg.libXScrnSaver xorg.libXcomposite xorg.libXcursor xorg.libXdamage
@@ -48,7 +29,7 @@ let
     # ++ lib.optionals lib.enableVideoAcceleration  [ "UseChromeOSDirectVideoDecoder" ]
     ;
 
-  new-installPhase = with pkgs; ''
+  new-installPhase = with pkgs.nix-23; ''
       runHook preInstall
 
       mkdir -p $out $out/bin
@@ -96,7 +77,7 @@ let
       runHook postInstall
   '';
 
-  new-preFixup = with pkgs; with lib; ''
+  new-preFixup = with pkgs.nix-23; with lib; ''
     # Add command line args to wrapGApp.
     gappsWrapperArgs+=(
       --prefix LD_LIBRARY_PATH : ${rpath}
@@ -112,7 +93,7 @@ let
     )
   '';
 
-  my-brave = pkgs.brave.overrideAttrs (final: prev : with pkgs; rec {
+  my-brave = pkgs.nix-23.brave.overrideAttrs (final: prev : with pkgs.nix-23; rec {
     buildInputs = [
       # needed for GSETTINGS_SCHEMAS_PATH
       glib gsettings-desktop-schemas gtk3 gtk-4-12-5
