@@ -90,6 +90,7 @@
     modify-pkgs = import ./modify-pkgs {
       pkgs = stable-pkgs;
       unstable-pkgs = unstable-pkgs;
+      nix23-pkgs = nix23-pkgs;
     };
     # Custom Packages
     custom-pkgs = import ./custom-pkgs {
@@ -123,7 +124,7 @@
         ({
           nixpkgs.overlays = [
             (final: prev: {
-              nix-23 = nix23-pkgs;
+              nix23 = nix23-pkgs;
             })
           ];
         })

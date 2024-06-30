@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, nix23-pkgs, ... }:
 let
   lib = pkgs.lib;
-  gtk-4-12-5 = pkgs.nix-23.gtk4.overrideAttrs (final: prev : with pkgs; rec {
+  gtk-4-12-5 = nix23-pkgs.gtk4.overrideAttrs (final: prev : with pkgs; rec {
     version = "4.12.5";
     src = fetchurl {
       url = "mirror://gnome/sources/gtk/${lib.versions.majorMinor final.version}/gtk-${final.version}.tar.xz";
@@ -9,7 +9,7 @@ let
     };
   });
 
-  deps = with pkgs.nix-23; [
+  deps = with pkgs; [
     alsa-lib at-spi2-atk at-spi2-core atk cairo cups dbus expat
     fontconfig freetype gdk-pixbuf glib gtk3 gtk-4-12-5 libdrm xorg.libX11 libGL
     libxkbcommon xorg.libXScrnSaver xorg.libXcomposite xorg.libXcursor xorg.libXdamage
@@ -29,7 +29,7 @@ let
     # ++ lib.optionals lib.enableVideoAcceleration  [ "UseChromeOSDirectVideoDecoder" ]
     ;
 
-  new-installPhase = with pkgs.nix-23; ''
+  new-installPhase = with pkgs; ''
       runHook preInstall
 
       mkdir -p $out $out/bin
@@ -77,7 +77,7 @@ let
       runHook postInstall
   '';
 
-  new-preFixup = with pkgs.nix-23; with lib; ''
+  new-preFixup = with pkgs; with lib; ''
     # Add command line args to wrapGApp.
     gappsWrapperArgs+=(
       --prefix LD_LIBRARY_PATH : ${rpath}
@@ -93,7 +93,7 @@ let
     )
   '';
 
-  my-brave = pkgs.nix-23.brave.overrideAttrs (final: prev : with pkgs.nix-23; rec {
+  my-brave = pkgs.brave.overrideAttrs (final: prev : with pkgs; rec {
     buildInputs = [
       # needed for GSETTINGS_SCHEMAS_PATH
       glib gsettings-desktop-schemas gtk3 gtk-4-12-5
