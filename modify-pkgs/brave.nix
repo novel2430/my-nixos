@@ -7,6 +7,21 @@ let
       url = "mirror://gnome/sources/gtk/${lib.versions.majorMinor final.version}/gtk-${final.version}.tar.xz";
       hash = "sha256-KLNW1ZDuaO9ibi75ggst0hRBSEqaBCpaPwxA6d/E9Pg=";
     };
+    mesonFlags = [
+      # ../docs/tools/shooter.c:4:10: fatal error: 'cairo-xlib.h' file not found
+      "-Ddocumentation=${lib.boolToString x11Support}"
+      "-Dbuild-tests=false"
+      "-Dtracker=${if trackerSupport then "enabled" else "disabled"}"
+      "-Dbroadway-backend=${lib.boolToString broadwaySupport}"
+    ] ++ lib.optionals vulkanSupport [
+      "-Dvulkan=enabled"
+    ] ++ lib.optionals (!cupsSupport) [
+      "-Dprint-cups=disabled"
+    ] ++ lib.optionals (stdenv.isDarwin && !stdenv.isAarch64) [
+      "-Dmedia-gstreamer=disabled" # requires gstreamer-gl
+    ] ++ lib.optionals (!x11Support) [
+      "-Dx11-backend=false"
+    ];
   });
 
   deps = with unstable-pkgs; [
