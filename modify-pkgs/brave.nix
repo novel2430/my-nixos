@@ -10,7 +10,7 @@ let
     postPatch = ''
       # this conditional gates the installation of share/gsettings-schemas/.../glib-2.0/schemas/gschemas.compiled.
       substituteInPlace meson.build \
-        --replace 'if not meson.is_cross_build()' 'if ${lib.boolToString compileSchemas}'
+        --replace 'if not meson.is_cross_build()' 'if ${lib.boolToString (stdenv.hostPlatform.emulatorAvailable buildPackages)}'
 
       files=(
         build-aux/meson/gen-demo-header.py
