@@ -51,6 +51,7 @@
     # Monitors (For Hyprland Config)
     hypr-monitors = [
       "eDP-1, disable"
+      "HDMI-A-1, 1280x720, auto, 1"
     ];
 
     # Use Clash
