@@ -7,21 +7,25 @@ let
       url = "mirror://gnome/sources/gtk/${lib.versions.majorMinor final.version}/gtk-${final.version}.tar.xz";
       hash = "sha256-KLNW1ZDuaO9ibi75ggst0hRBSEqaBCpaPwxA6d/E9Pg=";
     };
-    mesonFlags = [
-      # ../docs/tools/shooter.c:4:10: fatal error: 'cairo-xlib.h' file not found
-      "-Ddocumentation=${lib.boolToString x11Support}"
-      "-Dbuild-tests=false"
-      "-Dtracker=${if trackerSupport then "enabled" else "disabled"}"
-      "-Dbroadway-backend=${lib.boolToString broadwaySupport}"
-    ] ++ lib.optionals vulkanSupport [
-      "-Dvulkan=enabled"
-    ] ++ lib.optionals (!cupsSupport) [
-      "-Dprint-cups=disabled"
-    ] ++ lib.optionals (stdenv.isDarwin && !stdenv.isAarch64) [
-      "-Dmedia-gstreamer=disabled" # requires gstreamer-gl
-    ] ++ lib.optionals (!x11Support) [
-      "-Dx11-backend=false"
-    ];
+    postPatch = ''
+      # this conditional gates the installation of share/gsettings-schemas/.../glib-2.0/schemas/gschemas.compiled.
+      substituteInPlace meson.build \
+        --replace 'if not meson.is_cross_build()' 'if ${lib.boolToString compileSchemas}'
+
+      files=(
+        build-aux/meson/gen-demo-header.py
+        build-aux/meson/gen-visibility-macros.py
+        demos/gtk-demo/geninclude.py
+        gdk/broadway/gen-c-array.py
+        gdk/gen-gdk-gresources-xml.py
+        gtk/gen-gtk-gresources-xml.py
+        gtk/gentypefuncs.py
+      )
+
+      chmod +x ''${files[@]}
+      patchShebangs ''${files[@]}
+    '';
+
   });
 
   deps = with unstable-pkgs; [
