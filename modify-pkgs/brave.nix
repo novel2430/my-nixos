@@ -62,7 +62,7 @@ let
         wrapProgram $dev/bin/$program \
           --prefix XDG_DATA_DIRS : "$GSETTINGS_SCHEMAS_PATH:$out/share/gsettings-schemas/${pname}-${version}"
       done
-    '' + lib.optionalString x11Support ''
+    '' + lib.optionalString (stdenv.isLinux) ''
       # Cannot be in postInstall, otherwise _multioutDocs hook in preFixup will move right back.
       moveToOutput "share/doc" "$devdoc"
     '';
