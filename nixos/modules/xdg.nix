@@ -4,8 +4,8 @@
     enable = true;
     config.common.default = "gtk";
     extraPortals = [ 
-      pkgs.unstable.xdg-desktop-portal-gtk
-      pkgs.unstable.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
     ];
   };
 }

@@ -3,7 +3,7 @@
   # OpenGL
   hardware.opengl = lib.mkMerge [
     ({
-      package = pkgs.unstable.mesa.drivers;
+      package = pkgs.mesa.drivers;
       enable = true;
       driSupport = true;
       driSupport32Bit = true;

@@ -11,6 +11,6 @@
   home.file.".config/wayfire/lock.png".source = ./lock.png;
   
   home.packages = [
-    pkgs.unstable.wayfire
+    pkgs.wayfire
   ];
 }
