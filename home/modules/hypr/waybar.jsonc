@@ -116,15 +116,7 @@
         // "on-scroll-up": "hyprctl dispatch workspace e+1",
         // "on-scroll-down": "hyprctl dispatch workspace e-1",
         "persistent-workspaces": {
-          "1": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
-          "2": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
-          "3": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
-          "4": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
-          "5": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
-          "6": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
-          "7": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
-          "8": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
-          "9": ["HDMI-A-1", "eDP-1", "VGA-1", "LVDS-1", "HDMI-A-2"],
+          "*": 9
         }
     },
     "sway/mode": {
