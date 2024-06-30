@@ -110,6 +110,7 @@ let
     sourceRoot = ".";
 
     installPhase = ''
+      ls
       mkdir -p $out
       
       mv opt/apps/com.tencent.wechat/files opt/${_pkgname}
