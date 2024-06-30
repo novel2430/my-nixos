@@ -86,16 +86,17 @@
       config.allowUnfreePredicate = allowed-unfree-packages;
       config.permittedInsecurePackages = allowed-insecure-packages;
     };
+    # Custom Packages
+    custom-pkgs = import ./custom-pkgs {
+      pkgs = stable-pkgs;
+      unstable-pkgs = unstable-pkgs;
+    };
     # Modify Packages
     modify-pkgs = import ./modify-pkgs {
       pkgs = stable-pkgs;
       unstable-pkgs = unstable-pkgs;
       nix23-pkgs = nix23-pkgs;
-    };
-    # Custom Packages
-    custom-pkgs = import ./custom-pkgs {
-      pkgs = stable-pkgs;
-      unstable-pkgs = unstable-pkgs;
+      custom-pkgs = custom-pkgs;
     };
 
   in

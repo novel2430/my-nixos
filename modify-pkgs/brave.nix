@@ -1,13 +1,14 @@
-{ pkgs, nix23-pkgs, ... }:
+{ pkgs, nix23-pkgs, custom-pkgs, ... }:
 let
   lib = pkgs.lib;
-  gtk-4-12-5 = nix23-pkgs.gtk4.overrideAttrs (final: prev : with pkgs; rec {
-    version = "4.12.5";
-    src = fetchurl {
-      url = "mirror://gnome/sources/gtk/${lib.versions.majorMinor final.version}/gtk-${final.version}.tar.xz";
-      hash = "sha256-KLNW1ZDuaO9ibi75ggst0hRBSEqaBCpaPwxA6d/E9Pg=";
-    };
-  });
+  # gtk-4-12-5 = nix23-pkgs.gtk4.overrideAttrs (final: prev : with pkgs; rec {
+  #   version = "4.12.5";
+  #   src = fetchurl {
+  #     url = "mirror://gnome/sources/gtk/${lib.versions.majorMinor final.version}/gtk-${final.version}.tar.xz";
+  #     hash = "sha256-KLNW1ZDuaO9ibi75ggst0hRBSEqaBCpaPwxA6d/E9Pg=";
+  #   };
+  # });
+  gtk-4-12-5 = custom-pkgs.gtk4-12-5;
 
   deps = with pkgs; [
     alsa-lib at-spi2-atk at-spi2-core atk cairo cups dbus expat
