@@ -96,7 +96,6 @@
       pkgs = stable-pkgs;
       unstable-pkgs = unstable-pkgs;
       nix23-pkgs = nix23-pkgs;
-      custom-pkgs = custom-pkgs;
     };
 
   in
