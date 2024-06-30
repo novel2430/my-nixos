@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nur, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-23, home-manager, nur, ... }@inputs:
   let
     system = "x86_64-linux";
     # Host Config
