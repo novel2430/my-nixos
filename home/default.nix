@@ -42,11 +42,12 @@
       # modify-pkgs.openttd
       # Custom Packages
       ## custom-pkgs.*
+      custom-pkgs.wechat-universal-bwrap
       # Unstable
       ## unstable.*
       # NUR
       nur.repos.novel2430.wemeet-bin-bwrap
-      unstable.nur.repos.novel2430.wechat-universal-bwrap
+      # unstable.nur.repos.novel2430.wechat-universal-bwrap
       nur.repos.novel2430.zju-connect
       nur.repos.xddxdd.baidunetdisk
       nur.repos.xddxdd.dingtalk
