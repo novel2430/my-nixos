@@ -37,27 +37,6 @@ in
 stdenv.mkDerivation rec {
   pname = "wpsoffice-cn";
   version = "11.1.0.11719";
-
-  # Generate Download URL
-  # the Script below from AUR:wps-office-cn
-  #   - https://aur.archlinux.org/packages/wps-office-cn
-  # get-url = runCommand "get-url" {} ''
-  #   pkgver=${version}
-  #   arch="amd64"
-  #   url="https://wps-linux-personal.wpscdn.cn/wps/download/ep/Linux2019/''${pkgver##*.}/wps-office_''${pkgver}_''${arch}.deb"
-  #   uri="''${url#https://wps-linux-personal.wpscdn.cn}"
-  #   secrityKey="7f8faaaa468174dc1c9cd62e5f218a5b"
-  #   timestamp10=''$(date '+%s')
-  #   md5hash=''$(echo -n "''${secrityKey}''${uri}''${timestamp10}" | md5sum)
-  #   url+="?t=''${timestamp10}&k=''${md5hash%% *}"
-  #   echo "$url" > $out
-  # '';
-
-  # src = fetchurl {
-  #   url = "${builtins.readFile get-url}";
-  #   hash = "sha256-BYHTRPGNf4qhKGFc1SfGB9PAWVRL2/drcJJHqwW8TOQ=";
-  # }; 
-
   src = fetchurl {
     url = "https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/${lib.last (lib.splitString "." version)}/wps-office_${version}.XA_amd64.deb";
     hash = "sha256-ZK5+vPrPghdGyMpD0RlQcCZlyuZ4RQwP3czbInLzsmw=";
@@ -124,7 +103,12 @@ stdenv.mkDerivation rec {
   preFixup = ''
     ln -s ${freetype-wps}/lib/libfreetype.so.* $out/opt/kingsoft/wps-office/office6/
     # The following libraries need libtiff.so.5, but nixpkgs provides libtiff.so.6
+    # patchelf --replace-needed libtiff.so.5 libtiff.so $out/opt/kingsoft/wps-office/office6/{libpdfmain.so,libqpdfpaint.so,qt/plugins/imageformats/libqtiff.so,addons/pdfbatchcompression/libpdfbatchcompressionapp.so}
+    # The following libraries need libtiff.so.5, but nixpkgs provides libtiff.so.6
     patchelf --replace-needed libtiff.so.5 libtiff.so $out/opt/kingsoft/wps-office/office6/{libpdfmain.so,libqpdfpaint.so,qt/plugins/imageformats/libqtiff.so,addons/pdfbatchcompression/libpdfbatchcompressionapp.so}
+    patchelf --add-needed libtiff.so $out/opt/kingsoft/wps-office/office6/libwpsmain.so
+    # Fix: Wrong JPEG library version: library is 62, caller expects 80
+    patchelf --add-needed libjpeg.so $out/opt/kingsoft/wps-office/office6/libwpsmain.so
     # dlopen dependency
     patchelf --add-needed libudev.so.1 $out/opt/kingsoft/wps-office/office6/addons/cef/libcef.so
   '';
