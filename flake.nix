@@ -111,11 +111,18 @@
       modules = [
         # Add NUR
         { nixpkgs.overlays = [ nur.overlay ]; }
-        # Add Unstable Nixpkg & 23 Nixpkg
+        # Add Unstable Nixpkg
         ({
           nixpkgs.overlays = [
             (final: prev: {
               unstable = unstable-pkgs;
+            })
+          ];
+        })
+        # Add NixOS-23 Nixpkg
+        ({
+          nixpkgs.overlays = [
+            (final: prev: {
               nix-23 = nix23-pkgs;
             })
           ];
