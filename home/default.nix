@@ -39,7 +39,7 @@
       appimage-run
       # Modify Packages
       modify-pkgs.hmcl
-      modify-pkgs.openttd
+      # modify-pkgs.openttd
       # Custom Packages
       ## custom-pkgs.*
       # Unstable
