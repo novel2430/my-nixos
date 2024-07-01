@@ -38,6 +38,7 @@
       cargo
       appimage-run
       ryujinx
+      nsz
       # Modify Packages
       modify-pkgs.hmcl
       # modify-pkgs.openttd
