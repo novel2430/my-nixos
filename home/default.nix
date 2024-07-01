@@ -37,6 +37,7 @@
       rustc
       cargo
       appimage-run
+      ryujinx
       # Modify Packages
       modify-pkgs.hmcl
       # modify-pkgs.openttd
