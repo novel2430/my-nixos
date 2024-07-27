@@ -118,6 +118,7 @@ let
 
   
   startScript = writeShellScript "wechat-start" ''
+    export QT_QPA_PLATFORM=xcb
     if [[ ''${XMODIFIERS} =~ fcitx ]]; then
       export QT_IM_MODULE=fcitx
       export GTK_IM_MODULE=fcitx
@@ -206,7 +207,7 @@ let
       "--bind \${WECHAT_FILES_DIR} \${WECHAT_FILES_DIR}"
       "--chdir $HOME"
       "--setenv QT_QPA_PLATFORM xcb"
-      "--setenv QT_AUTO_SCREEN_SCALE_FACTOR 1"
+      # "--setenv QT_AUTO_SCREEN_SCALE_FACTOR 1"
 
       "--ro-bind-try \${HOME}/.fontconfig{,}"
       "--ro-bind-try \${HOME}/.fonts{,}"

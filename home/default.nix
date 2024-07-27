@@ -39,13 +39,13 @@
       appimage-run
       ryujinx
       nsz
-      wechat-uos
+      # wechat-uos
       # Modify Packages
       modify-pkgs.hmcl
       # modify-pkgs.openttd
       # Custom Packages
       ## custom-pkgs.*
-      # custom-pkgs.wechat-universal-bwrap
+      custom-pkgs.wechat-universal-bwrap
       # Unstable
       ## unstable.*
       # NUR
