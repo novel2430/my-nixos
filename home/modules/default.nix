@@ -16,7 +16,7 @@
     ./tmux
     ./mimetype
     ./fzf
-    ./hypr
+    # ./hypr <- Xwayland in Hyprland has some bugs
   ]
   ;
 }
