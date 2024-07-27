@@ -35,8 +35,8 @@ let
   });
 in
 stdenv.mkDerivation rec {
-  pname = "wpsoffice-cn";
-  version = "11.1.0.11719";
+  pname = "wpsoffice";
+  version = "11.1.0.11720";
   src = fetchurl {
     url = "https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/${lib.last (lib.splitString "." version)}/wps-office_${version}.XA_amd64.deb";
     hash = "sha256-ZK5+vPrPghdGyMpD0RlQcCZlyuZ4RQwP3czbInLzsmw=";
