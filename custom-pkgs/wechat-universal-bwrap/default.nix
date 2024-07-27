@@ -76,8 +76,6 @@ let
 
     buildPhase = ''
       echo "Building ${_lib_uos}.so stub by Zephyr Lykos..."
-      # gcc -fPIC -shared ${_lib_uos}.c -o ${_lib_uos}.so
-      # strip "${_lib_uos}.so"
       mv libuosdevicea.Makefile Makefile
       make
     '';
