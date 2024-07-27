@@ -131,6 +131,9 @@
       windowrulev2 = [
         "float,class:(org.jackhuang.hmcl.Launcher)"
       ];
+      xwayland = {
+        force_zero_scaling = true;
+      };
     };
   };
 }
