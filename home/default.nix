@@ -39,7 +39,6 @@
       appimage-run
       ryujinx
       nsz
-      # wechat-uos
       # Modify Packages
       modify-pkgs.hmcl
       # modify-pkgs.openttd
