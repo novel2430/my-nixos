@@ -117,13 +117,14 @@
         new_status = "master";
         new_on_top = true;
       };
-      # env = [
-      #   "LIBVA_DRIVER_NAME,nvidia"
-      #   "XDG_SESSION_TYPE,wayland"
-      #   "GBM_BACKEND,nvidia-drm"
-      #   "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-      #   "WLR_NO_HARDWARE_CURSORS,1"
-      # ];
+      env = [
+        # "LIBVA_DRIVER_NAME,nvidia"
+        # "XDG_SESSION_TYPE,wayland"
+        # "GBM_BACKEND,nvidia-drm"
+        # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        # "WLR_NO_HARDWARE_CURSORS,1"
+        "GDK_BACKEND,wayland,x11"
+      ];
       exec-once = [
         "my-hpyr-autostart"
       ];
