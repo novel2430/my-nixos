@@ -71,13 +71,15 @@ let
     src = builtins.fetchGit {
       url = "https://github.com/7Ji-PKGBUILDs/wechat-universal-bwrap.git"; 
       ref = "master";
-      rev = "03333f8ec6a06c0a6698197a8a9039b8c871c52e";
+      rev = "5e8ad25218b82b9bbacb0bd43dce2feb85998889";
     };
 
     buildPhase = ''
       echo "Building ${_lib_uos}.so stub by Zephyr Lykos..."
-      gcc -fPIC -shared ${_lib_uos}.c -o ${_lib_uos}.so
-      strip "${_lib_uos}.so"
+      # gcc -fPIC -shared ${_lib_uos}.c -o ${_lib_uos}.so
+      # strip "${_lib_uos}.so"
+      mv libuosdevicea.Makefile Makefile
+      make
     '';
     installPhase = ''
       mkdir -p $out
