@@ -130,9 +130,6 @@
       monitor = opt-config.hypr-monitors;
       windowrulev2 = [
         "float,class:(org.jackhuang.hmcl.Launcher)"
-        "workspace 9,class:(Spotify)"
-        "workspace 1,class:(Brave-browser)"
-        "workspace 8,class:(Nemo)"
       ];
     };
   };
