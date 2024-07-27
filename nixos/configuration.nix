@@ -202,6 +202,12 @@
       http_proxy = "${opt-config.https-proxy}";
     }) 
   ];
+  # Garbage Collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
 
   # This option defines the first version of NixOS you have installed on this particular machine,
