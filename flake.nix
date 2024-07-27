@@ -56,6 +56,7 @@
       "nvidia-persistenced"
       "spotify"
       "wpsoffice-cn"
+      "wpsoffice"
       "baidunetdisk"
       "dingtalk"
       "qq"
